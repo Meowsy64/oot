@@ -219,6 +219,7 @@ endif
 
 # create extracted directories
 $(shell mkdir -p $(EXTRACTED_DIR) $(EXTRACTED_DIR)/assets $(EXTRACTED_DIR)/text)
+$(shell cp -r mod_assets/* $(EXTRACTED_DIR)/assets)
 
 ASSET_BIN_DIRS := $(shell find $(EXTRACTED_DIR)/assets -type d)
 ASSET_FILES_BIN := $(foreach dir,$(ASSET_BIN_DIRS),$(wildcard $(dir)/*.bin))
