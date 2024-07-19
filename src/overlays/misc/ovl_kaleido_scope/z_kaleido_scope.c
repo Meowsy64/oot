@@ -251,29 +251,49 @@ static u16 sPageSwitchNextPageIndex[] = {
     PAUSE_QUEST, // PAUSE_EQUIP left
 };
 
-u8 gSlotAgeReqs[] = {
+u8 gSlotAgeReqs[ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT] = {
     AGE_REQ_CHILD, // SLOT_DEKU_STICK
     AGE_REQ_NONE,  // SLOT_DEKU_NUT
     AGE_REQ_NONE,  // SLOT_BOMB
+    AGE_REQ_NONE,  // SLOT_FREE1
+    AGE_REQ_NONE,  // SLOT_FREE2
     AGE_REQ_ADULT, // SLOT_BOW
     AGE_REQ_ADULT, // SLOT_ARROW_FIRE
     AGE_REQ_NONE,  // SLOT_DINS_FIRE
+
     AGE_REQ_CHILD, // SLOT_SLINGSHOT
     AGE_REQ_NONE,  // SLOT_OCARINA
     AGE_REQ_NONE,  // SLOT_BOMBCHU
     AGE_REQ_ADULT, // SLOT_HOOKSHOT
+    AGE_REQ_NONE,  // SLOT_FREE3
+    AGE_REQ_NONE,  // SLOT_FREE4
     AGE_REQ_ADULT, // SLOT_ARROW_ICE
     AGE_REQ_NONE,  // SLOT_FARORES_WIND
+
     AGE_REQ_CHILD, // SLOT_BOOMERANG
     AGE_REQ_NONE,  // SLOT_LENS_OF_TRUTH
     AGE_REQ_CHILD, // SLOT_MAGIC_BEAN
     AGE_REQ_ADULT, // SLOT_HAMMER
+    AGE_REQ_NONE,  // SLOT_FREE5
+    AGE_REQ_NONE,  // SLOT_FREE6
     AGE_REQ_ADULT, // SLOT_ARROW_LIGHT
     AGE_REQ_NONE,  // SLOT_NAYRUS_LOVE
+
+    AGE_REQ_NONE,  // SLOT_FREE7
+    AGE_REQ_NONE,  // SLOT_FREE8
+    AGE_REQ_NONE,  // SLOT_FREE9
+    AGE_REQ_NONE,  // SLOT_FREE10
+    AGE_REQ_NONE,  // SLOT_FREE11
+    AGE_REQ_NONE,  // SLOT_FREE12
+    AGE_REQ_NONE,  // SLOT_FREE13
+    AGE_REQ_NONE,  // SLOT_FREE14
+
     AGE_REQ_NONE,  // SLOT_BOTTLE_1
     AGE_REQ_NONE,  // SLOT_BOTTLE_2
     AGE_REQ_NONE,  // SLOT_BOTTLE_3
     AGE_REQ_NONE,  // SLOT_BOTTLE_4
+    AGE_REQ_NONE,  // SLOT_FREE15
+    AGE_REQ_NONE,  // SLOT_FREE16
     AGE_REQ_ADULT, // SLOT_TRADE_ADULT
     AGE_REQ_CHILD, // SLOT_TRADE_CHILD
 };
@@ -1977,7 +1997,15 @@ s16 func_80823A0C(PlayState* play, Vtx* vtx, s16 arg2, s16 arg3) {
     return phi_t1;
 }
 
-static s16 D_8082B11C[] = { 0, 4, 8, 12, 24, 32, 56 };
+static s16 D_8082B11C[] = {
+    4 * SLOT_DEKU_STICK,
+    4 * SLOT_DEKU_NUT,
+    4 * SLOT_BOMB,
+    4 * SLOT_BOW,
+    4 * SLOT_SLINGSHOT,
+    4 * SLOT_BOMBCHU,
+    4 * SLOT_MAGIC_BEAN,
+};
 
 static s16 D_8082B12C[] = { -114, 12, 44, 76 };
 
@@ -2099,20 +2127,21 @@ void KaleidoScope_InitVertices(PlayState* play, GraphicsContext* gfxCtx) {
     pauseCtx->cursorVtx[17].v.tc[0] = pauseCtx->cursorVtx[18].v.tc[1] = pauseCtx->cursorVtx[19].v.tc[0] =
         pauseCtx->cursorVtx[19].v.tc[1] = 0x400;
 
-    pauseCtx->itemVtx = GRAPH_ALLOC(gfxCtx, 164 * sizeof(Vtx));
+    // 24 items, 3 "item selected" backgrounds, 14 ammo digits (2 each for 7 items) -- then 4 vertices for each
+    pauseCtx->itemVtx = GRAPH_ALLOC(gfxCtx, ((ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT) + 3 + 2 * ARRAY_COUNT(D_8082B11C)) * 4 * sizeof(Vtx));
 
-    for (phi_t4 = 0, phi_t2 = 0, phi_t5 = 58; phi_t4 < 4; phi_t4++, phi_t5 -= 32) {
-        for (phi_t1 = -96, phi_t3 = 0; phi_t3 < 6; phi_t3++, phi_t2 += 4, phi_t1 += 32) {
+    for (phi_t4 = 0, phi_t2 = 0, phi_t5 = 58; phi_t4 < ITEMSCREEN_HEIGHT; phi_t4++, phi_t5 -= 24) {
+        for (phi_t1 = -96, phi_t3 = 0; phi_t3 < ITEMSCREEN_WIDTH; phi_t3++, phi_t2 += 4, phi_t1 += 24) {
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 2].v.ob[0] = phi_t1 + 2;
 
             pauseCtx->itemVtx[phi_t2 + 1].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[0] =
-                pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 0x1C;
+                pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 21;
 
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[1] =
                 phi_t5 + pauseCtx->offsetY - 2;
 
             pauseCtx->itemVtx[phi_t2 + 2].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[1] =
-                pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 0x1C;
+                pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 21;
 
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[2] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[2] =
                 pauseCtx->itemVtx[phi_t2 + 2].v.ob[2] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[2] = 0;
@@ -2146,13 +2175,13 @@ void KaleidoScope_InitVertices(PlayState* play, GraphicsContext* gfxCtx) {
                 pauseCtx->itemVtx[phi_t4].v.ob[0] - 2;
 
             pauseCtx->itemVtx[phi_t2 + 1].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[0] =
-                pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 32;
+                pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 24;
 
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[1] =
                 pauseCtx->itemVtx[phi_t4].v.ob[1] + 2;
 
             pauseCtx->itemVtx[phi_t2 + 2].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[1] =
-                pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 32;
+                pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 24;
 
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[2] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[2] =
                 pauseCtx->itemVtx[phi_t2 + 2].v.ob[2] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[2] = 0;
@@ -2179,64 +2208,70 @@ void KaleidoScope_InitVertices(PlayState* play, GraphicsContext* gfxCtx) {
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 2].v.ob[0] = -300;
 
             pauseCtx->itemVtx[phi_t2 + 1].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[0] =
-                pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 32;
+                pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 24;
 
             pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[1] = 300;
 
             pauseCtx->itemVtx[phi_t2 + 2].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[1] =
-                pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 32;
+                pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 24;
         }
     }
 
-    for (phi_t2 = 108, phi_t3 = 0; phi_t3 < 7; phi_t3++) {
-        phi_t4 = D_8082B11C[phi_t3];
+#define AMMOX(vtx) pauseCtx->ammoVtx[vtx].v.ob[0]
+#define AMMOY(vtx) pauseCtx->ammoVtx[vtx].v.ob[1]
+#define ITEMX(vtx) pauseCtx->itemVtx[vtx].v.ob[0]
+#define ITEMY(vtx) pauseCtx->itemVtx[vtx].v.ob[1]
 
-        pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 2].v.ob[0] =
-            pauseCtx->itemVtx[phi_t4].v.ob[0];
+    // (8 * 5) slots * 2 ammo digits * 4 Vtxs
+    pauseCtx->ammoVtx = GRAPH_ALLOC(gfxCtx, (ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT * 2) * 4 * sizeof(Vtx));
 
-        pauseCtx->itemVtx[phi_t2 + 1].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[0] =
-            pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 8;
+    //for (phi_t2 = (ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT + 3) * 4, phi_t3 = 0; phi_t3 < ARRAY_COUNT(D_8082B11C); phi_t3++) {
+    for (s16 ammonum = 0; ammonum < ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT; ammonum++) {
+        phi_t4 = ammonum * 4;
 
-        pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[1] =
+        AMMOX((ammonum * 8) + 0) = AMMOX((ammonum * 8) + 2) = ITEMX(phi_t4);
+        AMMOX((ammonum * 8) + 1) = AMMOX((ammonum * 8) + 3) = AMMOX((ammonum * 8) + 0) + 8;
+
+        pauseCtx->ammoVtx[(ammonum * 8) + 0].v.ob[1] = pauseCtx->ammoVtx[(ammonum * 8) + 1].v.ob[1] =
             pauseCtx->itemVtx[phi_t4].v.ob[1] - 22;
 
-        pauseCtx->itemVtx[phi_t2 + 2].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[1] =
-            pauseCtx->itemVtx[phi_t2 + 0].v.ob[1] - 8;
+        pauseCtx->ammoVtx[(ammonum * 8) + 2].v.ob[1] = pauseCtx->ammoVtx[(ammonum * 8) + 3].v.ob[1] =
+            pauseCtx->ammoVtx[(ammonum * 8) + 0].v.ob[1] - 8;
 
-        pauseCtx->itemVtx[phi_t2 + 4].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 6].v.ob[0] =
-            pauseCtx->itemVtx[phi_t2 + 0].v.ob[0] + 6;
+        pauseCtx->ammoVtx[(ammonum * 8) + 4].v.ob[0] = pauseCtx->ammoVtx[(ammonum * 8) + 6].v.ob[0] =
+            pauseCtx->ammoVtx[(ammonum * 8) + 0].v.ob[0] + 6;
 
-        pauseCtx->itemVtx[phi_t2 + 5].v.ob[0] = pauseCtx->itemVtx[phi_t2 + 7].v.ob[0] =
-            pauseCtx->itemVtx[phi_t2 + 4].v.ob[0] + 8;
+        pauseCtx->ammoVtx[(ammonum * 8) + 5].v.ob[0] = pauseCtx->ammoVtx[(ammonum * 8) + 7].v.ob[0] =
+            pauseCtx->ammoVtx[(ammonum * 8) + 4].v.ob[0] + 8;
 
-        pauseCtx->itemVtx[phi_t2 + 4].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 5].v.ob[1] =
-            pauseCtx->itemVtx[phi_t2 + 0].v.ob[1];
+        pauseCtx->ammoVtx[(ammonum * 8) + 4].v.ob[1] = pauseCtx->ammoVtx[(ammonum * 8) + 5].v.ob[1] =
+            pauseCtx->ammoVtx[(ammonum * 8) + 0].v.ob[1];
 
-        pauseCtx->itemVtx[phi_t2 + 6].v.ob[1] = pauseCtx->itemVtx[phi_t2 + 7].v.ob[1] =
-            pauseCtx->itemVtx[phi_t2 + 4].v.ob[1] - 8;
+        pauseCtx->ammoVtx[(ammonum * 8) + 6].v.ob[1] = pauseCtx->ammoVtx[(ammonum * 8) + 7].v.ob[1] =
+            pauseCtx->ammoVtx[(ammonum * 8) + 4].v.ob[1] - 8;
 
-        for (phi_t4 = 0; phi_t4 < 2; phi_t4++, phi_t2 += 4) {
-            pauseCtx->itemVtx[phi_t2 + 0].v.ob[2] = pauseCtx->itemVtx[phi_t2 + 1].v.ob[2] =
-                pauseCtx->itemVtx[phi_t2 + 2].v.ob[2] = pauseCtx->itemVtx[phi_t2 + 3].v.ob[2] = 0;
+        for (phi_t4 = 0; phi_t4 < 2; phi_t4++) {
+            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.ob[2] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.ob[2] =
+                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.ob[2] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.ob[2] = 0;
 
-            pauseCtx->itemVtx[phi_t2 + 0].v.flag = pauseCtx->itemVtx[phi_t2 + 1].v.flag =
-                pauseCtx->itemVtx[phi_t2 + 2].v.flag = pauseCtx->itemVtx[phi_t2 + 3].v.flag = 0;
+            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.flag = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.flag =
+                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.flag = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.flag = 0;
 
-            pauseCtx->itemVtx[phi_t2 + 0].v.tc[0] = pauseCtx->itemVtx[phi_t2 + 0].v.tc[1] =
-                pauseCtx->itemVtx[phi_t2 + 1].v.tc[1] = pauseCtx->itemVtx[phi_t2 + 2].v.tc[0] = 0;
+            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.tc[0] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.tc[1] =
+                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.tc[1] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.tc[0] = 0;
 
-            pauseCtx->itemVtx[phi_t2 + 1].v.tc[0] = pauseCtx->itemVtx[phi_t2 + 2].v.tc[1] =
-                pauseCtx->itemVtx[phi_t2 + 3].v.tc[0] = pauseCtx->itemVtx[phi_t2 + 3].v.tc[1] = 0x100;
+            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.tc[0] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.tc[1] =
+                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.tc[0] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.tc[1] = 0x100;
 
-            pauseCtx->itemVtx[phi_t2 + 0].v.cn[0] = pauseCtx->itemVtx[phi_t2 + 1].v.cn[0] =
-                pauseCtx->itemVtx[phi_t2 + 2].v.cn[0] = pauseCtx->itemVtx[phi_t2 + 3].v.cn[0] =
-                    pauseCtx->itemVtx[phi_t2 + 0].v.cn[1] = pauseCtx->itemVtx[phi_t2 + 1].v.cn[1] =
-                        pauseCtx->itemVtx[phi_t2 + 2].v.cn[1] = pauseCtx->itemVtx[phi_t2 + 3].v.cn[1] =
-                            pauseCtx->itemVtx[phi_t2 + 0].v.cn[2] = pauseCtx->itemVtx[phi_t2 + 1].v.cn[2] =
-                                pauseCtx->itemVtx[phi_t2 + 2].v.cn[2] = pauseCtx->itemVtx[phi_t2 + 3].v.cn[2] = 255;
+            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.cn[0] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.cn[0] =
+                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.cn[0] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.cn[0] =
+                    pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.cn[1] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.cn[1] =
+                        pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.cn[1] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.cn[1] =
+                            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.cn[2] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.cn[2] =
+                                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.cn[2] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.cn[2] = 255;
 
-            pauseCtx->itemVtx[phi_t2 + 0].v.cn[3] = pauseCtx->itemVtx[phi_t2 + 1].v.cn[3] =
-                pauseCtx->itemVtx[phi_t2 + 2].v.cn[3] = pauseCtx->itemVtx[phi_t2 + 3].v.cn[3] = pauseCtx->alpha;
+            pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 0].v.cn[3] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 1].v.cn[3] =
+                pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 2].v.cn[3] = pauseCtx->ammoVtx[(ammonum * 8) + (4 * phi_t4) + 3].v.cn[3] = pauseCtx->alpha;
         }
     }
 

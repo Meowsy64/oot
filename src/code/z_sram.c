@@ -71,25 +71,45 @@ static Inventory sNewSaveInventory = {
         ITEM_NONE, // SLOT_DEKU_STICK
         ITEM_NONE, // SLOT_DEKU_NUT
         ITEM_NONE, // SLOT_BOMB
+        ITEM_NONE, // SLOT_FREE1
+        ITEM_NONE, // SLOT_FREE2
         ITEM_NONE, // SLOT_BOW
         ITEM_NONE, // SLOT_ARROW_FIRE
         ITEM_NONE, // SLOT_DINS_FIRE
+
         ITEM_NONE, // SLOT_SLINGSHOT
         ITEM_NONE, // SLOT_OCARINA
         ITEM_NONE, // SLOT_BOMBCHU
         ITEM_NONE, // SLOT_HOOKSHOT
+        ITEM_NONE, // SLOT_FREE3
+        ITEM_NONE, // SLOT_FREE4
         ITEM_NONE, // SLOT_ARROW_ICE
         ITEM_NONE, // SLOT_FARORES_WIND
+
         ITEM_NONE, // SLOT_BOOMERANG
         ITEM_NONE, // SLOT_LENS_OF_TRUTH
         ITEM_NONE, // SLOT_MAGIC_BEAN
         ITEM_NONE, // SLOT_HAMMER
+        ITEM_NONE, // SLOT_FREE5
+        ITEM_NONE, // SLOT_FREE6
         ITEM_NONE, // SLOT_ARROW_LIGHT
         ITEM_NONE, // SLOT_NAYRUS_LOVE
+
+        ITEM_NONE, // SLOT_FREE7
+        ITEM_NONE, // SLOT_FREE8
+        ITEM_NONE, // SLOT_FREE9
+        ITEM_NONE, // SLOT_FREE10
+        ITEM_NONE, // SLOT_FREE11
+        ITEM_NONE, // SLOT_FREE12
+        ITEM_NONE, // SLOT_FREE13
+        ITEM_NONE, // SLOT_FREE14
+
         ITEM_NONE, // SLOT_BOTTLE_1
         ITEM_NONE, // SLOT_BOTTLE_2
         ITEM_NONE, // SLOT_BOTTLE_3
         ITEM_NONE, // SLOT_BOTTLE_4
+        ITEM_NONE, // SLOT_FREE15
+        ITEM_NONE, // SLOT_FREE16
         ITEM_NONE, // SLOT_TRADE_ADULT
         ITEM_NONE, // SLOT_TRADE_CHILD
     },
@@ -98,19 +118,47 @@ static Inventory sNewSaveInventory = {
         0, // SLOT_DEKU_STICK
         0, // SLOT_DEKU_NUT
         0, // SLOT_BOMB
+        0, // SLOT_FREE1
+        0, // SLOT_FREE2
         0, // SLOT_BOW
         0, // SLOT_ARROW_FIRE
         0, // SLOT_DINS_FIRE
+
         0, // SLOT_SLINGSHOT
         0, // SLOT_OCARINA
         0, // SLOT_BOMBCHU
         0, // SLOT_HOOKSHOT
+        0, // SLOT_FREE3
+        0, // SLOT_FREE4
         0, // SLOT_ARROW_ICE
         0, // SLOT_FARORES_WIND
+
         0, // SLOT_BOOMERANG
         0, // SLOT_LENS_OF_TRUTH
         0, // SLOT_MAGIC_BEAN
         0, // SLOT_HAMMER
+        0, // SLOT_FREE5
+        0, // SLOT_FREE6
+        0, // SLOT_ARROW_LIGHT
+        0, // SLOT_NAYRUS_LOVE
+
+        0, // SLOT_FREE7
+        0, // SLOT_FREE8
+        0, // SLOT_FREE9
+        0, // SLOT_FREE10
+        0, // SLOT_FREE11
+        0, // SLOT_FREE12
+        0, // SLOT_FREE13
+        0, // SLOT_FREE14
+
+        0, // SLOT_BOTTLE_1
+        0, // SLOT_BOTTLE_2
+        0, // SLOT_BOTTLE_3
+        0, // SLOT_BOTTLE_4
+        0, // SLOT_FREE15
+        0, // SLOT_FREE16
+        0, // SLOT_TRADE_ADULT
+        0, // SLOT_TRADE_CHILD
     },
     // equipment
     (((1 << EQUIP_INV_TUNIC_KOKIRI) << (EQUIP_TYPE_TUNIC * 4)) |
@@ -201,25 +249,45 @@ static Inventory sDebugSaveInventory = {
         ITEM_DEKU_STICK,          // SLOT_DEKU_STICK
         ITEM_DEKU_NUT,            // SLOT_DEKU_NUT
         ITEM_BOMB,                // SLOT_BOMB
+        ITEM_NONE,                // SLOT_FREE1
+        ITEM_NONE,                // SLOT_FREE2
         ITEM_BOW,                 // SLOT_BOW
         ITEM_ARROW_FIRE,          // SLOT_ARROW_FIRE
         ITEM_DINS_FIRE,           // SLOT_DINS_FIRE
+
         ITEM_SLINGSHOT,           // SLOT_SLINGSHOT
         ITEM_OCARINA_FAIRY,       // SLOT_OCARINA
         ITEM_BOMBCHU,             // SLOT_BOMBCHU
         ITEM_HOOKSHOT,            // SLOT_HOOKSHOT
+        ITEM_NONE,                // SLOT_FREE3
+        ITEM_NONE,                // SLOT_FREE4
         ITEM_ARROW_ICE,           // SLOT_ARROW_ICE
         ITEM_FARORES_WIND,        // SLOT_FARORES_WIND
+
         ITEM_BOOMERANG,           // SLOT_BOOMERANG
         ITEM_LENS_OF_TRUTH,       // SLOT_LENS_OF_TRUTH
         ITEM_MAGIC_BEAN,          // SLOT_MAGIC_BEAN
         ITEM_HAMMER,              // SLOT_HAMMER
+        ITEM_NONE,                // SLOT_FREE5
+        ITEM_NONE,                // SLOT_FREE6
         ITEM_ARROW_LIGHT,         // SLOT_ARROW_LIGHT
         ITEM_NAYRUS_LOVE,         // SLOT_NAYRUS_LOVE
+
+        ITEM_NONE,                // SLOT_FREE7
+        ITEM_NONE,                // SLOT_FREE8
+        ITEM_NONE,                // SLOT_FREE9
+        ITEM_NONE,                // SLOT_FREE10
+        ITEM_NONE,                // SLOT_FREE11
+        ITEM_NONE,                // SLOT_FREE12
+        ITEM_NONE,                // SLOT_FREE13
+        ITEM_NONE,                // SLOT_FREE14
+
         ITEM_BOTTLE_EMPTY,        // SLOT_BOTTLE_1
         ITEM_BOTTLE_POTION_RED,   // SLOT_BOTTLE_2
         ITEM_BOTTLE_POTION_GREEN, // SLOT_BOTTLE_3
         ITEM_BOTTLE_POTION_BLUE,  // SLOT_BOTTLE_4
+        ITEM_NONE,                // SLOT_FREE15
+        ITEM_NONE,                // SLOT_FREE16
         ITEM_POCKET_EGG,          // SLOT_TRADE_ADULT
         ITEM_WEIRD_EGG,           // SLOT_TRADE_CHILD
     },
@@ -228,19 +296,47 @@ static Inventory sDebugSaveInventory = {
         50, // SLOT_DEKU_STICK
         50, // SLOT_DEKU_NUT
         10, // SLOT_BOMB
+        1,  // SLOT_FREE1
+        1,  // SLOT_FREE2
         30, // SLOT_BOW
         1,  // SLOT_ARROW_FIRE
         1,  // SLOT_DINS_FIRE
+
         30, // SLOT_SLINGSHOT
         1,  // SLOT_OCARINA
         50, // SLOT_BOMBCHU
         1,  // SLOT_HOOKSHOT
+        1,  // SLOT_FREE3
+        1,  // SLOT_FREE4
         1,  // SLOT_ARROW_ICE
         1,  // SLOT_FARORES_WIND
+
         1,  // SLOT_BOOMERANG
         1,  // SLOT_LENS_OF_TRUTH
         1,  // SLOT_MAGIC_BEAN
-        1   // SLOT_HAMMER
+        1,  // SLOT_HAMMER
+        1,  // SLOT_FREE5
+        1,  // SLOT_FREE6
+        1,  // SLOT_ARROW_LIGHT
+        1,  // SLOT_NAYRUS_LOVE
+
+        1,  // SLOT_FREE7
+        1,  // SLOT_FREE8
+        1,  // SLOT_FREE9
+        1,  // SLOT_FREE10
+        1,  // SLOT_FREE11
+        1,  // SLOT_FREE12
+        1,  // SLOT_FREE13
+        1,  // SLOT_FREE14
+
+        1,  // SLOT_BOTTLE_1
+        1,  // SLOT_BOTTLE_2
+        1,  // SLOT_BOTTLE_3
+        1,  // SLOT_BOTTLE_4
+        1,  // SLOT_FREE15
+        1,  // SLOT_FREE16
+        1,  // SLOT_TRADE_ADULT
+        1,  // SLOT_TRADE_CHILD
     },
     // equipment
     ((((1 << EQUIP_INV_SWORD_KOKIRI) << (EQUIP_TYPE_SWORD * 4)) |

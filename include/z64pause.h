@@ -111,6 +111,7 @@ typedef struct {
     /* 0x0150 */ Vtx* questPageVtx;
     /* 0x0154 */ Vtx* infoPanelVtx;
     /* 0x0158 */ Vtx* itemVtx;
+                 Vtx* ammoVtx;
     /* 0x015C */ Vtx* equipVtx;
     /* 0x0160 */ char unk_160[0x04];
     /* 0x0164 */ Vtx* questVtx;

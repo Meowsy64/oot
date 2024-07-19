@@ -47,6 +47,9 @@
 #define AMMO(item) gSaveContext.save.info.inventory.ammo[SLOT(item)]
 #define BEANS_BOUGHT AMMO(ITEM_MAGIC_BEAN + 1)
 
+#define ITEMSCREEN_WIDTH  8
+#define ITEMSCREEN_HEIGHT 5
+
 #define ALL_EQUIP_VALUE(equip) ((s32)(gSaveContext.save.info.inventory.equipment & gEquipMasks[equip]) >> gEquipShifts[equip])
 #define CUR_EQUIP_VALUE(equip) ((s32)(gSaveContext.save.info.equips.equipment & gEquipMasks[equip]) >> gEquipShifts[equip])
 #define OWNED_EQUIP_FLAG(equip, value) (gBitFlags[value] << gEquipShifts[equip])

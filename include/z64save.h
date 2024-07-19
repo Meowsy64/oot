@@ -3,6 +3,7 @@
 
 #include "ultra64.h"
 #include "z64math.h"
+#include "macros.h"
 
 typedef enum {
 #if OOT_NTSC
@@ -71,8 +72,8 @@ typedef struct {
 } ItemEquips; // size = 0x0A
 
 typedef struct {
-    /* 0x00 */ u8 items[24];
-    /* 0x18 */ s8 ammo[16];
+    /* 0x00 */ u8 items[ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT];
+    /* 0x18 */ s8 ammo[ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT];
     /* 0x28 */ u16 equipment; // a mask where each nibble corresponds to a type of equipment `EquipmentType`, and each bit to an owned piece `EquipInv*`
     /* 0x2C */ u32 upgrades;
     /* 0x30 */ u32 questItems;
