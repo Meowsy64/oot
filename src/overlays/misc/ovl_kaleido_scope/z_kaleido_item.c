@@ -595,7 +595,7 @@ void KaleidoScope_UpdateItemEquip(PlayState* play) {
     }
 
     if (sEquipState == 1) {
-        bowItemVtx = &pauseCtx->itemVtx[12];
+        bowItemVtx = &pauseCtx->itemVtx[SLOT_BOW * 4];
         offsetX = ABS(pauseCtx->equipAnimX - bowItemVtx->v.ob[0] * 10) / sEquipMoveTimer;
         offsetY = ABS(pauseCtx->equipAnimY - bowItemVtx->v.ob[1] * 10) / sEquipMoveTimer;
     } else {
@@ -617,13 +617,13 @@ void KaleidoScope_UpdateItemEquip(PlayState* play) {
         WREG(87) -= WREG(87) / sEquipMoveTimer;
 
         if (sEquipState == 1) {
-            if (pauseCtx->equipAnimX >= (pauseCtx->itemVtx[12].v.ob[0] * 10)) {
+            if (pauseCtx->equipAnimX >= (pauseCtx->itemVtx[SLOT_BOW * 4].v.ob[0] * 10)) {
                 pauseCtx->equipAnimX -= offsetX;
             } else {
                 pauseCtx->equipAnimX += offsetX;
             }
 
-            if (pauseCtx->equipAnimY >= (pauseCtx->itemVtx[12].v.ob[1] * 10)) {
+            if (pauseCtx->equipAnimY >= (pauseCtx->itemVtx[SLOT_BOW * 4].v.ob[1] * 10)) {
                 pauseCtx->equipAnimY -= offsetY;
             } else {
                 pauseCtx->equipAnimY += offsetY;

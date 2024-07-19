@@ -3397,11 +3397,11 @@ void Interface_Draw(PlayState* play) {
                     pauseCtx->cursorVtx[16].v.ob[0] = pauseCtx->cursorVtx[18].v.ob[0] =
                         pauseCtx->cursorVtx[16].v.ob[0] - svar1;
                     pauseCtx->cursorVtx[17].v.ob[0] = pauseCtx->cursorVtx[19].v.ob[0] =
-                        pauseCtx->cursorVtx[16].v.ob[0] + svar1 * 2 + 32;
+                        pauseCtx->cursorVtx[16].v.ob[0] + svar1 * 2 + 24;
                     pauseCtx->cursorVtx[16].v.ob[1] = pauseCtx->cursorVtx[17].v.ob[1] =
                         pauseCtx->cursorVtx[16].v.ob[1] + svar1;
                     pauseCtx->cursorVtx[18].v.ob[1] = pauseCtx->cursorVtx[19].v.ob[1] =
-                        pauseCtx->cursorVtx[16].v.ob[1] - svar1 * 2 - 32;
+                        pauseCtx->cursorVtx[16].v.ob[1] - svar1 * 2 - 24;
                 }
 
                 gSPVertex(OVERLAY_DISP++, &pauseCtx->cursorVtx[16], 4, 0);
