@@ -2127,8 +2127,8 @@ void KaleidoScope_InitVertices(PlayState* play, GraphicsContext* gfxCtx) {
     pauseCtx->cursorVtx[17].v.tc[0] = pauseCtx->cursorVtx[18].v.tc[1] = pauseCtx->cursorVtx[19].v.tc[0] =
         pauseCtx->cursorVtx[19].v.tc[1] = 0x400;
 
-    // 24 items, 3 "item selected" backgrounds, 14 ammo digits (2 each for 7 items) -- then 4 vertices for each
-    pauseCtx->itemVtx = GRAPH_ALLOC(gfxCtx, ((ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT) + 3 + 2 * ARRAY_COUNT(D_8082B11C)) * 4 * sizeof(Vtx));
+    // 24 items, 3 "item selected" backgrounds -- then 4 vertices for each
+    pauseCtx->itemVtx = GRAPH_ALLOC(gfxCtx, ((ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT) + 3) * 4 * sizeof(Vtx));
 
     for (phi_t4 = 0, phi_t2 = 0, phi_t5 = 58; phi_t4 < ITEMSCREEN_HEIGHT; phi_t4++, phi_t5 -= 24) {
         for (phi_t1 = -96, phi_t3 = 0; phi_t3 < ITEMSCREEN_WIDTH; phi_t3++, phi_t2 += 4, phi_t1 += 24) {
