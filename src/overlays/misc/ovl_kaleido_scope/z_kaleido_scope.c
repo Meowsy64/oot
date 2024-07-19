@@ -2233,7 +2233,7 @@ void KaleidoScope_InitVertices(PlayState* play, GraphicsContext* gfxCtx) {
         AMMOX((ammonum * 8) + 1) = AMMOX((ammonum * 8) + 3) = AMMOX((ammonum * 8) + 0) + 8;
 
         pauseCtx->ammoVtx[(ammonum * 8) + 0].v.ob[1] = pauseCtx->ammoVtx[(ammonum * 8) + 1].v.ob[1] =
-            pauseCtx->itemVtx[phi_t4].v.ob[1] - 22;
+            pauseCtx->itemVtx[phi_t4].v.ob[1] - 14;
 
         pauseCtx->ammoVtx[(ammonum * 8) + 2].v.ob[1] = pauseCtx->ammoVtx[(ammonum * 8) + 3].v.ob[1] =
             pauseCtx->ammoVtx[(ammonum * 8) + 0].v.ob[1] - 8;
@@ -2679,6 +2679,11 @@ void KaleidoScope_UpdateCursorSize(PlayState* play) {
                 temp3 = 8;
                 temp4 = 8;
             }
+        } else if (pauseCtx->pageIndex == PAUSE_ITEM) {
+            temp1 = -1;
+            temp2 = 1;
+            temp3 = 5;
+            temp4 = 5;
         }
     } else {
         temp1 = -4;
