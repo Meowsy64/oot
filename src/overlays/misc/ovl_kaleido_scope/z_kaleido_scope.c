@@ -1479,7 +1479,7 @@ void KaleidoScope_DrawInfoPanel(PlayState* play) {
                 }
             }
         } else {
-            if ((u32)pauseCtx->pageIndex == PAUSE_ITEM) {
+            if ((u32)pauseCtx->pageIndex == PAUSE_ITEM && gSaveContext.save.info.inventory.items[pauseCtx->cursorPoint[PAUSE_ITEM]] != ITEM_NONE) {
                 pauseCtx->infoPanelVtx[16].v.ob[0] = pauseCtx->infoPanelVtx[18].v.ob[0] =
                     WREG(49 + gSaveContext.language);
 
@@ -1576,6 +1576,7 @@ void KaleidoScope_DrawInfoPanel(PlayState* play) {
 void KaleidoScope_UpdateNamePanel(PlayState* play) {
     PauseContext* pauseCtx = &play->pauseCtx;
     u16 sp2A;
+    u16 pauseAnyCursor = true;
 
     if ((pauseCtx->namedItem != pauseCtx->cursorItem[pauseCtx->pageIndex]) ||
         ((pauseCtx->pageIndex == PAUSE_MAP) && (pauseCtx->cursorSpecialPos != 0))) {
@@ -1584,6 +1585,12 @@ void KaleidoScope_UpdateNamePanel(PlayState* play) {
         sp2A = pauseCtx->namedItem;
 
         osCreateMesgQueue(&pauseCtx->loadQueue, &pauseCtx->loadMsg, 1);
+
+        if (pauseAnyCursor &&
+        ((pauseCtx->pageIndex == PAUSE_EQUIP && pauseCtx->cursorX[PAUSE_EQUIP] != 0 && !CHECK_OWNED_EQUIP(pauseCtx->cursorY[PAUSE_EQUIP], pauseCtx->cursorX[PAUSE_EQUIP] - 1)) ||
+        (pauseCtx->pageIndex == PAUSE_ITEM && gSaveContext.save.info.inventory.items[pauseCtx->cursorPoint[PAUSE_ITEM]] == ITEM_NONE))) {
+            pauseCtx->namedItem = PAUSE_ITEM_NONE;
+        }
 
         if (pauseCtx->namedItem != PAUSE_ITEM_NONE) {
             if ((pauseCtx->pageIndex == PAUSE_MAP) && !sInDungeonScene) {
@@ -2763,7 +2770,7 @@ void KaleidoScope_Update(PlayState* play) {
     u32 size0;
     u32 size1;
     u32 size2;
-    u16 i;
+    u16 i = 0;
     s16 stepR;
     s16 stepG;
     s16 stepB;
