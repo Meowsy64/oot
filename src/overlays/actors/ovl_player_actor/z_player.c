@@ -11615,15 +11615,9 @@ void Player_Draw(Actor* thisx, PlayState* play2) {
 
     if (!(this->stateFlags2 & PLAYER_STATE2_29)) {
         OverrideLimbDrawOpa overrideLimbDraw = Player_OverrideLimbDrawGameplayDefault;
-        s32 lod;
+        // According to kentonm's benchmarking, always using high LOD doesn't impact performance
+        s32 lod = 0;
         s32 pad;
-
-        if ((this->csAction != PLAYER_CSACTION_NONE) || (func_8008E9C4(this) && 0) ||
-            (this->actor.projectedPos.z < 160.0f)) {
-            lod = 0;
-        } else {
-            lod = 1;
-        }
 
         func_80093C80(play);
         Gfx_SetupDL_25Xlu(play->state.gfxCtx);
