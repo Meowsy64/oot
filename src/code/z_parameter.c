@@ -1771,7 +1771,7 @@ u8 Item_Give(PlayState* play, u8 item) {
     } else if (item == ITEM_BOTTLE_EMPTY) {
         temp = SLOT(item);
 
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < NUM_BOTTLES; i++) {
             if (gSaveContext.save.info.inventory.items[temp + i] == ITEM_NONE) {
                 gSaveContext.save.info.inventory.items[temp + i] = item;
                 return ITEM_NONE;
@@ -1786,7 +1786,7 @@ u8 Item_Give(PlayState* play, u8 item) {
                 temp = SLOT(item);
             }
 
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < NUM_BOTTLES; i++) {
                 if (gSaveContext.save.info.inventory.items[temp + i] == ITEM_BOTTLE_EMPTY) {
                     // "Item_Pt(1)=%d Item_Pt(2)=%d Item_Pt(3)=%d   Empty Bottle=%d   Content=%d"
                     PRINTF("Item_Pt(1)=%d Item_Pt(2)=%d Item_Pt(3)=%d   空瓶=%d   中味=%d\n",
@@ -1812,7 +1812,7 @@ u8 Item_Give(PlayState* play, u8 item) {
                 }
             }
         } else {
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < NUM_BOTTLES; i++) {
                 if (gSaveContext.save.info.inventory.items[temp + i] == ITEM_NONE) {
                     gSaveContext.save.info.inventory.items[temp + i] = item;
                     return ITEM_NONE;
@@ -1959,13 +1959,13 @@ u8 Item_CheckObtainability(u8 item) {
                 temp = SLOT(item);
             }
 
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < NUM_BOTTLES; i++) {
                 if (gSaveContext.save.info.inventory.items[temp + i] == ITEM_BOTTLE_EMPTY) {
                     return ITEM_NONE;
                 }
             }
         } else {
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < NUM_BOTTLES; i++) {
                 if (gSaveContext.save.info.inventory.items[temp + i] == ITEM_NONE) {
                     return ITEM_NONE;
                 }
@@ -2021,7 +2021,7 @@ s32 Inventory_ReplaceItem(PlayState* play, u16 oldItem, u16 newItem) {
 s32 Inventory_HasEmptyBottle(void) {
     s32 slot;
 
-    for (slot = SLOT_BOTTLE_1; slot <= SLOT_BOTTLE_4; slot++) {
+    for (slot = SLOT_BOTTLE_1; slot <= SLOT_BOTTLE_6; slot++) {
         if (gSaveContext.save.info.inventory.items[slot] == ITEM_BOTTLE_EMPTY) {
             return true;
         }
@@ -2033,7 +2033,7 @@ s32 Inventory_HasEmptyBottle(void) {
 s32 Inventory_HasSpecificBottle(u8 bottleItem) {
     s32 slot;
 
-    for (slot = SLOT_BOTTLE_1; slot <= SLOT_BOTTLE_4; slot++) {
+    for (slot = SLOT_BOTTLE_1; slot <= SLOT_BOTTLE_6; slot++) {
         if (gSaveContext.save.info.inventory.items[slot] == bottleItem) {
             return true;
         }
@@ -2068,7 +2068,7 @@ s32 Inventory_ConsumeFairy(PlayState* play) {
     s16 i;
     s16 j;
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < NUM_BOTTLES; i++) {
         if (gSaveContext.save.info.inventory.items[bottleSlot + i] == ITEM_BOTTLE_FAIRY) {
             for (j = 1; j < 4; j++) {
                 if (gSaveContext.save.info.equips.buttonItems[j] == ITEM_BOTTLE_FAIRY) {

@@ -54,8 +54,8 @@ static s16 sAmmoVtxOffset[ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT] = {
     99, // SLOT_BOTTLE_2
     99, // SLOT_BOTTLE_3
     99, // SLOT_BOTTLE_4
-    99, // SLOT_FREE15
-    99, // SLOT_FREE16
+    99, // SLOT_BOTTLE_5
+    99, // SLOT_BOTTLE_6
     99, // SLOT_TRADE_ADULT
     99, // SLOT_TRADE_CHILD
 };

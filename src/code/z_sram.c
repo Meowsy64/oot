@@ -108,8 +108,8 @@ static Inventory sNewSaveInventory = {
         ITEM_NONE, // SLOT_BOTTLE_2
         ITEM_NONE, // SLOT_BOTTLE_3
         ITEM_NONE, // SLOT_BOTTLE_4
-        ITEM_NONE, // SLOT_FREE15
-        ITEM_NONE, // SLOT_FREE16
+        ITEM_NONE, // SLOT_BOTTLE_5
+        ITEM_NONE, // SLOT_BOTTLE_6
         ITEM_NONE, // SLOT_TRADE_ADULT
         ITEM_NONE, // SLOT_TRADE_CHILD
     },
@@ -155,8 +155,8 @@ static Inventory sNewSaveInventory = {
         0, // SLOT_BOTTLE_2
         0, // SLOT_BOTTLE_3
         0, // SLOT_BOTTLE_4
-        0, // SLOT_FREE15
-        0, // SLOT_FREE16
+        0, // SLOT_BOTTLE_5
+        0, // SLOT_BOTTLE_6
         0, // SLOT_TRADE_ADULT
         0, // SLOT_TRADE_CHILD
     },
@@ -286,8 +286,8 @@ static Inventory sDebugSaveInventory = {
         ITEM_BOTTLE_POTION_RED,   // SLOT_BOTTLE_2
         ITEM_BOTTLE_POTION_GREEN, // SLOT_BOTTLE_3
         ITEM_BOTTLE_POTION_BLUE,  // SLOT_BOTTLE_4
-        ITEM_NONE,                // SLOT_FREE15
-        ITEM_NONE,                // SLOT_FREE16
+        ITEM_BOTTLE_MILK_FULL,    // SLOT_BOTTLE_5
+        ITEM_BOTTLE_FAIRY,        // SLOT_BOTTLE_6
         ITEM_POCKET_EGG,          // SLOT_TRADE_ADULT
         ITEM_WEIRD_EGG,           // SLOT_TRADE_CHILD
     },
@@ -333,8 +333,8 @@ static Inventory sDebugSaveInventory = {
         1,  // SLOT_BOTTLE_2
         1,  // SLOT_BOTTLE_3
         1,  // SLOT_BOTTLE_4
-        1,  // SLOT_FREE15
-        1,  // SLOT_FREE16
+        1,  // SLOT_BOTTLE_5
+        1,  // SLOT_BOTTLE_6
         1,  // SLOT_TRADE_ADULT
         1,  // SLOT_TRADE_CHILD
     },

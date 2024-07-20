@@ -163,8 +163,8 @@ typedef enum {
     /* 0x13 */ SLOT_BOTTLE_2,
     /* 0x14 */ SLOT_BOTTLE_3,
     /* 0x15 */ SLOT_BOTTLE_4,
-               SLOT_FREE15,
-               SLOT_FREE16,
+               SLOT_BOTTLE_5,
+               SLOT_BOTTLE_6,
     /* 0x16 */ SLOT_TRADE_ADULT,
     /* 0x17 */ SLOT_TRADE_CHILD,
 
@@ -332,6 +332,8 @@ typedef enum {
     /* 0xFE */ ITEM_NONE_FE = 0xFE,
     /* 0xFF */ ITEM_NONE = 0xFF
 } ItemID;
+
+#define NUM_BOTTLES 6
 
 #define ITEM_TRADE_CHILD ITEM_WEIRD_EGG
 #define ITEM_TRADE_ADULT ITEM_POCKET_EGG
