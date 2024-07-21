@@ -652,11 +652,12 @@ void EffectSsHahen_SpawnBurst(PlayState* play, Vec3f* pos, f32 burstScale, s16 u
  * As child, spawn a broken stick fragment
  * As adult, spawn a broken sword fragment
  */
-void EffectSsStick_Spawn(PlayState* play, Vec3f* pos, s16 yaw) {
+void EffectSsStick_Spawn(PlayState* play, Vec3f* pos, s16 yaw, s8 heldItemAction) {
     EffectSsStickInitParams initParams;
 
     initParams.pos = *pos;
     initParams.yaw = yaw;
+    initParams.heldItemAction = heldItemAction;
 
     EffectSs_Spawn(play, EFFECT_SS_STICK, 128, &initParams);
 }

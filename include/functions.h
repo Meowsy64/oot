@@ -237,7 +237,7 @@ void EffectSsHahen_Spawn(PlayState* play, Vec3f* pos, Vec3f* velocity, Vec3f* ac
                          s16 objId, s16 life, Gfx* dList);
 void EffectSsHahen_SpawnBurst(PlayState* play, Vec3f* pos, f32 burstScale, s16 unused, s16 scale,
                               s16 randScaleRange, s16 count, s16 objId, s16 life, Gfx* dList);
-void EffectSsStick_Spawn(PlayState* play, Vec3f* pos, s16 yaw);
+void EffectSsStick_Spawn(PlayState* play, Vec3f* pos, s16 yaw, s8 heldItemAction);
 void EffectSsSibuki_Spawn(PlayState* play, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 moveDelay,
                           s16 direction, s16 scale);
 void EffectSsSibuki_SpawnBurst(PlayState* play, Vec3f* pos);

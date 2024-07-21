@@ -7,6 +7,7 @@
 #include "z_eff_ss_stick.h"
 #include "assets/objects/object_link_boy/object_link_boy.h"
 #include "assets/objects/object_link_child/object_link_child.h"
+#include "assets/objects/gameplay_keep/gameplay_keep.h"
 
 #define rObjectSlot regs[0]
 #define rYaw regs[1]
@@ -20,21 +21,16 @@ EffectSsInit Effect_Ss_Stick_InitVars = {
     EffectSsStick_Init,
 };
 
-typedef struct {
-    /* 0x00 */ s16 objectId;
-    /* 0x04 */ Gfx* displayList;
-} StickDrawInfo;
-
 u32 EffectSsStick_Init(PlayState* play, u32 index, EffectSs* this, void* initParamsx) {
-    StickDrawInfo drawInfo[] = {
-        { OBJECT_LINK_BOY, gLinkAdultBrokenGiantsKnifeBladeDL }, // adult, broken sword
-        { OBJECT_LINK_CHILD, gLinkChildLinkDekuStickDL },        // child, broken stick
-    };
-    StickDrawInfo* ageInfoEntry = gSaveContext.save.linkAge + drawInfo;
     EffectSsStickInitParams* initParams = (EffectSsStickInitParams*)initParamsx;
+    if (initParams->heldItemAction == PLAYER_IA_DEKU_STICK) {
+        this->rObjectSlot = Object_GetSlot(&play->objectCtx, OBJECT_LINK_CHILD);
+        this->gfx = gLinkDekuStickDL;
+    } else {
+        this->rObjectSlot = Object_GetSlot(&play->objectCtx, OBJECT_LINK_BOY);
+        this->gfx = gLinkAdultBrokenGiantsKnifeBladeDL;
+    }
 
-    this->rObjectSlot = Object_GetSlot(&play->objectCtx, ageInfoEntry->objectId);
-    this->gfx = ageInfoEntry->displayList;
     this->vec = this->pos = initParams->pos;
     this->rYaw = initParams->yaw;
     this->velocity.x = Math_SinS(initParams->yaw) * 6.0f;

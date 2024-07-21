@@ -252,7 +252,7 @@ static u16 sPageSwitchNextPageIndex[] = {
 };
 
 u8 gSlotAgeReqs[ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT] = {
-    AGE_REQ_CHILD, // SLOT_DEKU_STICK
+    AGE_REQ_NONE,  // SLOT_DEKU_STICK
     AGE_REQ_NONE,  // SLOT_DEKU_NUT
     AGE_REQ_NONE,  // SLOT_BOMB
     AGE_REQ_NONE,  // SLOT_FREE1
@@ -326,7 +326,7 @@ u8 gEquipAgeReqs[4][4] = {
 };
 
 u8 gItemAgeReqs[] = {
-    AGE_REQ_CHILD, // ITEM_DEKU_STICK
+    AGE_REQ_NONE,  // ITEM_DEKU_STICK
     AGE_REQ_NONE,  // ITEM_DEKU_NUT
     AGE_REQ_NONE,  // ITEM_BOMB
     AGE_REQ_ADULT, // ITEM_BOW
