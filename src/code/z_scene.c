@@ -47,26 +47,26 @@ s32 Object_SpawnPersistent(ObjectContext* objectCtx, s16 objectId) {
 
 void Object_InitContext(PlayState* play, ObjectContext* objectCtx) {
     PlayState* play2 = play;
-    s32 pad;
+    u32 pad = 50;
     u32 spaceSize;
     s32 i;
 
     if (play2->sceneId == SCENE_HYRULE_FIELD) {
-        spaceSize = 1000 * 1024;
+        spaceSize = (1000 + pad) * 1024;
     } else if (play2->sceneId == SCENE_GANON_BOSS) {
         if (gSaveContext.sceneLayer != 4) {
-            spaceSize = 1150 * 1024;
+            spaceSize = (1150 + pad) * 1024;
         } else {
-            spaceSize = 1000 * 1024;
+            spaceSize = (1000 + pad) * 1024;
         }
     } else if (play2->sceneId == SCENE_SPIRIT_TEMPLE_BOSS) {
-        spaceSize = 1050 * 1024;
+        spaceSize = (1050 + pad) * 1024;
     } else if (play2->sceneId == SCENE_CHAMBER_OF_THE_SAGES) {
-        spaceSize = 1050 * 1024;
+        spaceSize = (1050 + pad) * 1024;
     } else if (play2->sceneId == SCENE_GANONDORF_BOSS) {
-        spaceSize = 1050 * 1024;
+        spaceSize = (1050 + pad) * 1024;
     } else {
-        spaceSize = 1000 * 1024;
+        spaceSize = (1000 + pad) * 1024;
     }
 
     objectCtx->numEntries = objectCtx->numPersistentEntries = 0;
