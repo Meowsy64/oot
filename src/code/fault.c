@@ -1218,14 +1218,6 @@ void Fault_ThreadEntry(void* arg) {
         // Show fault framebuffer
         Fault_DisplayFrameBuffer();
 
-        if (sFaultInstance->autoScroll) {
-            Fault_Wait5Seconds();
-        } else {
-            // Draw error bar signifying the crash screen is available
-            Fault_DrawCornerRec(GPACK_RGBA5551(255, 0, 0, 1));
-            Fault_WaitForButtonCombo();
-        }
-
         // Set auto-scrolling and default colors
         sFaultInstance->autoScroll = true;
         FaultDrawer_SetForeColor(GPACK_RGBA5551(255, 255, 255, 1));
@@ -1249,10 +1241,10 @@ void Fault_ThreadEntry(void* arg) {
             Fault_DrawMemDump(faultedThread->context.pc - 0x100, (uintptr_t)faultedThread->context.sp, 0, 0);
             // End page
             Fault_FillScreenRed();
-            FaultDrawer_DrawText(64, 80, "    CONGRATURATIONS!    ");
-            FaultDrawer_DrawText(64, 90, "All Pages are displayed.");
+            FaultDrawer_DrawText(64, 80,  "    CONGRATULATIONS!    ");
+            FaultDrawer_DrawText(64, 90,  "All pages are displayed.");
             FaultDrawer_DrawText(64, 100, "       THANK YOU!       ");
-            FaultDrawer_DrawText(64, 110, " You are great debugger!");
+            FaultDrawer_DrawText(64, 110, "You're a great debugger!");
             Fault_WaitForInput();
         } while (!sFaultInstance->exit);
 
