@@ -1856,7 +1856,7 @@ u8 Item_CheckObtainability(u8 item) {
     s16 slot = SLOT(item);
     s16 temp;
 
-    if (item >= ITEM_DEKU_STICKS_5) {
+    if (item >= ITEM_DEKU_STICKS_5 && item <= ITEM_DEKU_NUT_UPGRADE_40) {
         slot = SLOT(sExtraItemBases[item - ITEM_DEKU_STICKS_5]);
     }
 
