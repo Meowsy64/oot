@@ -2920,6 +2920,19 @@ void Interface_DrawItemIconTexture(PlayState* play, void* texture, s16 button) {
     CLOSE_DISPS(play->state.gfxCtx, "../z_parameter.c", 3094);
 }
 
+s8 ItemUsesAmmo(u8 item) {
+    return item == ITEM_DEKU_STICK ||
+           item == ITEM_DEKU_NUT ||
+           item == ITEM_BOMB ||
+           item == ITEM_BOW ||
+           item == ITEM_BOW_FIRE ||
+           item == ITEM_BOW_ICE ||
+           item == ITEM_BOW_LIGHT ||
+           item == ITEM_SLINGSHOT ||
+           item == ITEM_BOMBCHU ||
+           item == ITEM_MAGIC_BEAN;
+}
+
 void Interface_DrawAmmoCount(PlayState* play, s16 button, s16 alpha) {
     s16 i;
     s16 ammo;
@@ -2928,9 +2941,7 @@ void Interface_DrawAmmoCount(PlayState* play, s16 button, s16 alpha) {
 
     i = gSaveContext.save.info.equips.buttonItems[button];
 
-    if ((i == ITEM_DEKU_STICK) || (i == ITEM_DEKU_NUT) || (i == ITEM_BOMB) || (i == ITEM_BOW) ||
-        ((i >= ITEM_BOW_FIRE) && (i <= ITEM_BOW_LIGHT)) || (i == ITEM_SLINGSHOT) || (i == ITEM_BOMBCHU) ||
-        (i == ITEM_MAGIC_BEAN)) {
+    if (ItemUsesAmmo(i)) {
 
         if ((i >= ITEM_BOW_FIRE) && (i <= ITEM_BOW_LIGHT)) {
             i = ITEM_BOW;

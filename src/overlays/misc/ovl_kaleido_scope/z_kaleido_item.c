@@ -13,16 +13,10 @@ static s16 sEquipState = 0;
 static s16 sEquipAnimTimer = 0;
 static s16 sEquipMoveTimer = 10;
 
-// From SoH
+extern s8 ItemUsesAmmo(u8 item);
+
 s8 ItemInSlotUsesAmmo(s16 slot) {
-    s16 item = gSaveContext.save.info.inventory.items[slot];
-    return item == ITEM_DEKU_STICK ||
-           item == ITEM_DEKU_NUT ||
-           item == ITEM_BOMB ||
-           item == ITEM_BOW ||
-           item == ITEM_SLINGSHOT ||
-           item == ITEM_BOMBCHU ||
-           item == ITEM_MAGIC_BEAN;
+    return ItemUsesAmmo(gSaveContext.save.info.inventory.items[slot]);
 }
 
 void KaleidoScope_DrawAmmoCount(PauseContext* pauseCtx, GraphicsContext* gfxCtx, s16 item, int slot) {
