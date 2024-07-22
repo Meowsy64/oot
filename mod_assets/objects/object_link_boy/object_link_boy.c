@@ -69,10 +69,6 @@ u64 gLinkAdultNose2Tex[] = {
 #include "assets/objects/object_link_boy/nose2.ci8.inc.c"
 };
 
-u64 gLinkAdultUnusedHandTex[] = {
-#include "assets/objects/object_link_boy/unused_hand.ci8.inc.c"
-};
-
 u64 object_link_boyTLUT_005400[] = {
 #include "assets/objects/object_link_boy/object_link_boyTLUT_005400.rgba16.inc.c"
 };
@@ -133,36 +129,8 @@ u64 gLinkAdultNeckTex[] = {
 #include "assets/objects/object_link_boy/neck.ci8.inc.c"
 };
 
-u64 gLinkAdultUnusedGauntlet1Tex[] = {
-#include "assets/objects/object_link_boy/unused_gauntlet_1.ci8.inc.c"
-};
-
-u64 gLinkAdultUnusedGauntlet2Tex[] = {
-#include "assets/objects/object_link_boy/unused_gauntlet_2.ci8.inc.c"
-};
-
 u64 gLinkAdultArmGauntletTex[] = {
 #include "assets/objects/object_link_boy/arm_gauntlet.ci8.inc.c"
-};
-
-u64 gLinkAdultUnusedSheathTex[] = {
-#include "assets/objects/object_link_boy/unused_sheath.ci8.inc.c"
-};
-
-u64 gLinkAdultUnusedSheathBandTex[] = {
-#include "assets/objects/object_link_boy/unused_sheat_band.ci8.inc.c"
-};
-
-u64 gLinkAdultUnusedSwordPommelTex[] = {
-#include "assets/objects/object_link_boy/unused_sword_pommel.ci8.inc.c"
-};
-
-u64 gLinkAdultUnusedSwordGuardTex[] = {
-#include "assets/objects/object_link_boy/unused_sword_guard.ci8.inc.c"
-};
-
-u64 gLinkAdultUnusedSwordEmblemTex[] = {
-#include "assets/objects/object_link_boy/unused_sword_emblem.ci8.inc.c"
 };
 
 u64 gLinkAdultTunicTex[] = {

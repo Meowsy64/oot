@@ -4278,51 +4278,6 @@ Vtx gameplay_keepVtx_01C280[] = {
 #include "assets/objects/gameplay_keep/gameplay_keepVtx_01C280.vtx.inc"
 };
 
-u64 gEffUnusedBubbles1Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_1.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles2Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_2.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles3Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_3.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles4Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_4.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles5Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_5.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles6Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_6.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles7Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_7.ia8.inc.c"
-};
-
-u64 gEffUnusedBubbles8Tex[] = {
-#include "assets/objects/gameplay_keep/eff_unused_bubbles_8.ia8.inc.c"
-};
-
-Gfx gEffUnusedBubblesDL[] = {
-    gsSPMatrix(0x01000000, G_MTX_NOPUSH | G_MTX_MUL | G_MTX_MODELVIEW),
-    gsDPPipeSync(),
-    gsSPTexture(0xFFFF, 0xFFFF, 0, G_TX_RENDERTILE, G_ON),
-    gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, PRIMITIVE, 0, TEXEL0, 0, PRIMITIVE, ENVIRONMENT,
-                       TEXEL0, ENVIRONMENT, PRIMITIVE, 0, TEXEL0, 0),
-    gsDPLoadTextureBlock(0x08000000, G_IM_FMT_IA, G_IM_SIZ_8b, 32, 32, 0, G_TX_NOMIRROR | G_TX_CLAMP, G_TX_NOMIRROR |
-                         G_TX_CLAMP, 5, 5, G_TX_NOLOD, G_TX_NOLOD),
-    gsSPVertex(gameplay_keepVtx_01E330, 4, 0),
-    gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
-    gsSPEndDisplayList(),
-};
-
 Vtx gameplay_keepVtx_01E330[] = {
 #include "assets/objects/gameplay_keep/gameplay_keepVtx_01E330.vtx.inc"
 };

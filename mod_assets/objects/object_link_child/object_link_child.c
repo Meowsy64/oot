@@ -63,10 +63,6 @@ u64 gLinkChildNoseTex[] = {
 #include "assets/objects/object_link_child/nose.ci8.inc.c"
 };
 
-u64 gLinkChildUnusedHandTex[] = {
-#include "assets/objects/object_link_child/unused_hand.ci8.inc.c"
-};
-
 u64 gLinkChildEarTex[] = {
 #include "assets/objects/object_link_child/ear.ci8.inc.c"
 };
@@ -81,10 +77,6 @@ u64 gLinkChildSkinTLUT[] = {
 
 u64 gLinkChildLowerBootTex[] = {
 #include "assets/objects/object_link_child/lower_boot.ci8.inc.c"
-};
-
-u64 gLinkChildUnusedBootTex[] = {
-#include "assets/objects/object_link_child/unused_boot.ci8.inc.c"
 };
 
 u64 gLinkChildBootTex[] = {
