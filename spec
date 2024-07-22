@@ -2096,13 +2096,6 @@ beginseg
 endseg
 
 beginseg
-    name "ovl_Effect_Ss_Sibuki2"
-    compress
-    include "$(BUILD_DIR)/src/overlays/effects/ovl_Effect_Ss_Sibuki2/z_eff_ss_sibuki2.o"
-    include "$(BUILD_DIR)/src/overlays/effects/ovl_Effect_Ss_Sibuki2/ovl_Effect_Ss_Sibuki2_reloc.o"
-endseg
-
-beginseg
     name "ovl_Effect_Ss_Solder_Srch_Ball"
     compress
     include "$(BUILD_DIR)/src/overlays/effects/ovl_Effect_Ss_Solder_Srch_Ball/z_eff_ss_solder_srch_ball.o"
