@@ -71,7 +71,7 @@ static Inventory sNewSaveInventory = {
         ITEM_NONE, // SLOT_DEKU_STICK
         ITEM_NONE, // SLOT_DEKU_NUT
         ITEM_NONE, // SLOT_BOMB
-        ITEM_NONE, // SLOT_FREE1
+        ITEM_NONE, // SLOT_POWDER_KEG
         ITEM_NONE, // SLOT_FREE2
         ITEM_NONE, // SLOT_BOW
         ITEM_NONE, // SLOT_ARROW_FIRE
@@ -118,7 +118,7 @@ static Inventory sNewSaveInventory = {
         0, // SLOT_DEKU_STICK
         0, // SLOT_DEKU_NUT
         0, // SLOT_BOMB
-        0, // SLOT_FREE1
+        0, // SLOT_POWDER_KEG
         0, // SLOT_FREE2
         0, // SLOT_BOW
         0, // SLOT_ARROW_FIRE
@@ -249,7 +249,7 @@ static Inventory sDebugSaveInventory = {
         ITEM_DEKU_STICK,          // SLOT_DEKU_STICK
         ITEM_DEKU_NUT,            // SLOT_DEKU_NUT
         ITEM_BOMB,                // SLOT_BOMB
-        ITEM_NONE,                // SLOT_FREE1
+        ITEM_POWDER_KEG,          // SLOT_POWDER_KEG
         ITEM_NONE,                // SLOT_FREE2
         ITEM_BOW,                 // SLOT_BOW
         ITEM_ARROW_FIRE,          // SLOT_ARROW_FIRE
@@ -296,7 +296,7 @@ static Inventory sDebugSaveInventory = {
         50, // SLOT_DEKU_STICK
         50, // SLOT_DEKU_NUT
         10, // SLOT_BOMB
-        1,  // SLOT_FREE1
+        1,  // SLOT_POWDER_KEG
         1,  // SLOT_FREE2
         30, // SLOT_BOW
         1,  // SLOT_ARROW_FIRE

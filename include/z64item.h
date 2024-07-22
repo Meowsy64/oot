@@ -126,7 +126,7 @@ typedef enum {
     /* 0x00 */ SLOT_DEKU_STICK,
     /* 0x01 */ SLOT_DEKU_NUT,
     /* 0x02 */ SLOT_BOMB,
-               SLOT_FREE1,
+               SLOT_POWDER_KEG,
                SLOT_FREE2,
     /* 0x03 */ SLOT_BOW,
     /* 0x04 */ SLOT_ARROW_FIRE,
@@ -328,6 +328,8 @@ typedef enum {
     /* 0x99 */ ITEM_DEKU_STICK_UPGRADE_30,
     /* 0x9A */ ITEM_DEKU_NUT_UPGRADE_30,
     /* 0x9B */ ITEM_DEKU_NUT_UPGRADE_40,
+               ITEM_POWDER_KEG,
+               NUM_ITEMS,
     /* 0xFC */ ITEM_SWORD_CS = 0xFC,
     /* 0xFE */ ITEM_NONE_FE = 0xFE,
     /* 0xFF */ ITEM_NONE = 0xFF

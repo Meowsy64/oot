@@ -77,7 +77,7 @@ u16 gUpgradeCapacities[UPG_MAX][4] = {
 u32 gGsFlagsMasks[] = { 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000 };
 u32 gGsFlagsShifts[] = { 0, 8, 16, 24 };
 
-void* gItemIcons[] = {
+void* gItemIcons[NUM_ITEMS] = {
     // icon_item_static 32x32 rgba32
     gItemIconDekuStickTex,         // ITEM_DEKU_STICK
     gItemIconDekuNutTex,           // ITEM_DEKU_NUT
@@ -170,53 +170,83 @@ void* gItemIcons[] = {
     gItemIconDekuSeedsTex,         // ITEM_DEKU_SEEDS
     gItemIconFishingPoleTex,       // ITEM_FISHING_POLE
     // icon_item_static 16x24 ia8
-    gSongNoteTex, // ITEM_SONG_MINUET
-    gSongNoteTex, // ITEM_SONG_BOLERO
-    gSongNoteTex, // ITEM_SONG_SERENADE
-    gSongNoteTex, // ITEM_SONG_REQUIEM
-    gSongNoteTex, // ITEM_SONG_NOCTURNE
-    gSongNoteTex, // ITEM_SONG_PRELUDE
-    gSongNoteTex, // ITEM_SONG_LULLABY
-    gSongNoteTex, // ITEM_SONG_EPONA
-    gSongNoteTex, // ITEM_SONG_SARIA
-    gSongNoteTex, // ITEM_SONG_SUN
-    gSongNoteTex, // ITEM_SONG_TIME
-    gSongNoteTex, // ITEM_SONG_STORMS
+    gSongNoteTex,                  // ITEM_SONG_MINUET
+    gSongNoteTex,                  // ITEM_SONG_BOLERO
+    gSongNoteTex,                  // ITEM_SONG_SERENADE
+    gSongNoteTex,                  // ITEM_SONG_REQUIEM
+    gSongNoteTex,                  // ITEM_SONG_NOCTURNE
+    gSongNoteTex,                  // ITEM_SONG_PRELUDE
+    gSongNoteTex,                  // ITEM_SONG_LULLABY
+    gSongNoteTex,                  // ITEM_SONG_EPONA
+    gSongNoteTex,                  // ITEM_SONG_SARIA
+    gSongNoteTex,                  // ITEM_SONG_SUN
+    gSongNoteTex,                  // ITEM_SONG_TIME
+    gSongNoteTex,                  // ITEM_SONG_STORMS
     // icon_item_24static 24x24 rgba32
-    gQuestIconMedallionForestTex, // ITEM_MEDALLION_FOREST
-    gQuestIconMedallionFireTex,   // ITEM_MEDALLION_FIRE
-    gQuestIconMedallionWaterTex,  // ITEM_MEDALLION_WATER
-    gQuestIconMedallionSpiritTex, // ITEM_MEDALLION_SPIRIT
-    gQuestIconMedallionShadowTex, // ITEM_MEDALLION_SHADOW
-    gQuestIconMedallionLightTex,  // ITEM_MEDALLION_LIGHT
-    gQuestIconKokiriEmeraldTex,   // ITEM_KOKIRI_EMERALD
-    gQuestIconGoronRubyTex,       // ITEM_GORON_RUBY
-    gQuestIconZoraSapphireTex,    // ITEM_ZORA_SAPPHIRE
-    gQuestIconStoneOfAgonyTex,    // ITEM_STONE_OF_AGONY
-    gQuestIconGerudosCardTex,     // ITEM_GERUDOS_CARD
-    gQuestIconGoldSkulltulaTex,   // ITEM_SKULL_TOKEN
-    gQuestIconHeartContainerTex,  // ITEM_HEART_CONTAINER
-    gQuestIconHeartPieceTex,      // ITEM_HEART_PIECE
-    gQuestIconDungeonBossKeyTex,  // ITEM_DUNGEON_BOSS_KEY
-    gQuestIconDungeonMapTex,      // ITEM_DUNGEON_COMPASS (swapped with map (inconsequential))
-    gQuestIconDungeonCompassTex,  // ITEM_DUNGEON_MAP (swapped with compass (inconsequential))
-    gQuestIconDungeonBossKeyTex,  // ITEM_SMALL_KEY (but texture is boss key (inconsequential))
-    gQuestIconMagicJarSmallTex,   // ITEM_MAGIC_JAR_SMALL
-    gQuestIconMagicJarBigTex,     // ITEM_MAGIC_JAR_BIG
+    gQuestIconMedallionForestTex,  // ITEM_MEDALLION_FOREST
+    gQuestIconMedallionFireTex,    // ITEM_MEDALLION_FIRE
+    gQuestIconMedallionWaterTex,   // ITEM_MEDALLION_WATER
+    gQuestIconMedallionSpiritTex,  // ITEM_MEDALLION_SPIRIT
+    gQuestIconMedallionShadowTex,  // ITEM_MEDALLION_SHADOW
+    gQuestIconMedallionLightTex,   // ITEM_MEDALLION_LIGHT
+    gQuestIconKokiriEmeraldTex,    // ITEM_KOKIRI_EMERALD
+    gQuestIconGoronRubyTex,        // ITEM_GORON_RUBY
+    gQuestIconZoraSapphireTex,     // ITEM_ZORA_SAPPHIRE
+    gQuestIconStoneOfAgonyTex,     // ITEM_STONE_OF_AGONY
+    gQuestIconGerudosCardTex,      // ITEM_GERUDOS_CARD
+    gQuestIconGoldSkulltulaTex,    // ITEM_SKULL_TOKEN
+    gQuestIconHeartContainerTex,   // ITEM_HEART_CONTAINER
+    gQuestIconHeartPieceTex,       // ITEM_HEART_PIECE
+    gQuestIconDungeonBossKeyTex,   // ITEM_DUNGEON_BOSS_KEY
+    gQuestIconDungeonCompassTex,   // ITEM_DUNGEON_COMPASS
+    gQuestIconDungeonMapTex,       // ITEM_DUNGEON_MAP
+    gQuestIconSmallKeyTex,         // ITEM_SMALL_KEY
+    gQuestIconMagicJarSmallTex,    // ITEM_MAGIC_JAR_SMALL
+    gQuestIconMagicJarBigTex,      // ITEM_MAGIC_JAR_BIG
     // icon_item_static 48x48 ia8
-    gHeartPieceIcon1Tex, // ITEM_HEART_PIECE_2
-    gHeartPieceIcon2Tex, // ITEM_INVALID_1
-    gHeartPieceIcon3Tex, // ITEM_INVALID_2
+    gHeartPieceIcon1Tex,           // ITEM_HEART_PIECE_2
+    gHeartPieceIcon2Tex,           // ITEM_INVALID_1
+    gHeartPieceIcon3Tex,           // ITEM_INVALID_2
     // parameter_static 16x16 ia8
-    gOcarinaBtnIconCUpTex,    // ITEM_INVALID_3
-    gOcarinaBtnIconCDownTex,  // ITEM_INVALID_4
-    gOcarinaBtnIconCLeftTex,  // ITEM_INVALID_5
-    gOcarinaBtnIconCRightTex, // ITEM_INVALID_6
-    gOcarinaBtnIconATex,      // ITEM_INVALID_7
+    gOcarinaBtnIconCUpTex,         // ITEM_INVALID_3
+    gOcarinaBtnIconCDownTex,       // ITEM_INVALID_4
+    gOcarinaBtnIconCLeftTex,       // ITEM_INVALID_5
+    gOcarinaBtnIconCRightTex,      // ITEM_INVALID_6
+    gOcarinaBtnIconATex,           // ITEM_INVALID_7
+    // icon_item_static 32x32 rgba32
+    gItemIconBottleMilkFullTex,    // ITEM_MILK
+    // parameter_static 16x16 ia8
+    gOcarinaBtnIconATex,           // ITEM_RECOVERY_HEART
+    gOcarinaBtnIconATex,           // ITEM_RUPEE_GREEN
+    gOcarinaBtnIconATex,           // ITEM_RUPEE_BLUE
+    gOcarinaBtnIconATex,           // ITEM_RUPEE_RED
+    gOcarinaBtnIconATex,           // ITEM_RUPEE_PURPLE
+    gOcarinaBtnIconATex,           // ITEM_RUPEE_GOLD
+    gOcarinaBtnIconATex,           // ITEM_INVALID_8
+    // icon_item_static 32x32 rgba32
+    gItemIconDekuStickTex,         // ITEM_DEKU_STICKS_5
+    gItemIconDekuStickTex,         // ITEM_DEKU_STICKS_10
+    gItemIconDekuNutTex,           // ITEM_DEKU_NUTS_5
+    gItemIconDekuNutTex,           // ITEM_DEKU_NUTS_10
+    gItemIconBombTex,              // ITEM_BOMBS_5
+    gItemIconBombTex,              // ITEM_BOMBS_10
+    gItemIconBombTex,              // ITEM_BOMBS_20
+    gItemIconBombTex,              // ITEM_BOMBS_30
+    gItemIconQuiver30Tex,          // ITEM_ARROWS_5
+    gItemIconQuiver30Tex,          // ITEM_ARROWS_10
+    gItemIconQuiver30Tex,          // ITEM_ARROWS_30
+    gItemIconBulletBag30Tex,       // ITEM_DEKU_SEEDS_30
+    gItemIconBombchuTex,           // ITEM_BOMBCHUS_5
+    gItemIconBombchuTex,           // ITEM_BOMBCHUS_20
+    gItemIconDekuStickTex,         // ITEM_DEKU_STICK_UPGRADE_20
+    gItemIconDekuStickTex,         // ITEM_DEKU_STICK_UPGRADE_30
+    gItemIconDekuNutTex,           // ITEM_DEKU_NUT_UPGRADE_30
+    gItemIconDekuNutTex,           // ITEM_DEKU_NUT_UPGRADE_40
+    gItemIconBombTex,              // ITEM_POWDER_KEG
 };
 
 // Used to map item IDs to inventory slots
-u8 gItemSlots[] = {
+u8 gItemSlots[NUM_ITEMS] = {
     SLOT_DEKU_STICK,    // ITEM_DEKU_STICK
     SLOT_DEKU_NUT,      // ITEM_DEKU_NUT
     SLOT_BOMB,          // ITEM_BOMB
@@ -273,6 +303,107 @@ u8 gItemSlots[] = {
     SLOT_TRADE_ADULT,   // ITEM_EYEBALL_FROG
     SLOT_TRADE_ADULT,   // ITEM_EYE_DROPS
     SLOT_TRADE_ADULT,   // ITEM_CLAIM_CHECK
+    SLOT_NONE,          // ITEM_BOW_FIRE
+    SLOT_NONE,          // ITEM_BOW_ICE
+    SLOT_NONE,          // ITEM_BOW_LIGHT
+    SLOT_NONE,          // ITEM_SWORD_KOKIRI
+    SLOT_NONE,          // ITEM_SWORD_MASTER
+    SLOT_NONE,          // ITEM_SWORD_BIGGORON
+    SLOT_NONE,          // ITEM_SHIELD_DEKU
+    SLOT_NONE,          // ITEM_SHIELD_HYLIAN
+    SLOT_NONE,          // ITEM_SHIELD_MIRROR
+    SLOT_NONE,          // ITEM_TUNIC_KOKIRI
+    SLOT_NONE,          // ITEM_TUNIC_GORON
+    SLOT_NONE,          // ITEM_TUNIC_ZORA
+    SLOT_NONE,          // ITEM_BOOTS_KOKIRI
+    SLOT_NONE,          // ITEM_BOOTS_IRON
+    SLOT_NONE,          // ITEM_BOOTS_HOVER
+    SLOT_NONE,          // ITEM_BULLET_BAG_30
+    SLOT_NONE,          // ITEM_BULLET_BAG_40
+    SLOT_NONE,          // ITEM_BULLET_BAG_50
+    SLOT_NONE,          // ITEM_QUIVER_30
+    SLOT_NONE,          // ITEM_QUIVER_40
+    SLOT_NONE,          // ITEM_QUIVER_50
+    SLOT_NONE,          // ITEM_BOMB_BAG_20
+    SLOT_NONE,          // ITEM_BOMB_BAG_30
+    SLOT_NONE,          // ITEM_BOMB_BAG_40
+    SLOT_NONE,          // ITEM_STRENGTH_GORONS_BRACELET
+    SLOT_NONE,          // ITEM_STRENGTH_SILVER_GAUNTLETS
+    SLOT_NONE,          // ITEM_STRENGTH_GOLD_GAUNTLETS
+    SLOT_NONE,          // ITEM_SCALE_SILVER
+    SLOT_NONE,          // ITEM_SCALE_GOLDEN
+    SLOT_NONE,          // ITEM_GIANTS_KNIFE
+    SLOT_NONE,          // ITEM_ADULTS_WALLET
+    SLOT_NONE,          // ITEM_GIANTS_WALLET
+    SLOT_NONE,          // ITEM_DEKU_SEEDS
+    SLOT_NONE,          // ITEM_FISHING_POLE
+    SLOT_NONE,          // ITEM_SONG_MINUET
+    SLOT_NONE,          // ITEM_SONG_BOLERO
+    SLOT_NONE,          // ITEM_SONG_SERENADE
+    SLOT_NONE,          // ITEM_SONG_REQUIEM
+    SLOT_NONE,          // ITEM_SONG_NOCTURNE
+    SLOT_NONE,          // ITEM_SONG_PRELUDE
+    SLOT_NONE,          // ITEM_SONG_LULLABY
+    SLOT_NONE,          // ITEM_SONG_EPONA
+    SLOT_NONE,          // ITEM_SONG_SARIA
+    SLOT_NONE,          // ITEM_SONG_SUN
+    SLOT_NONE,          // ITEM_SONG_TIME
+    SLOT_NONE,          // ITEM_SONG_STORMS
+    SLOT_NONE,          // ITEM_MEDALLION_FOREST
+    SLOT_NONE,          // ITEM_MEDALLION_FIRE
+    SLOT_NONE,          // ITEM_MEDALLION_WATER
+    SLOT_NONE,          // ITEM_MEDALLION_SPIRIT
+    SLOT_NONE,          // ITEM_MEDALLION_SHADOW
+    SLOT_NONE,          // ITEM_MEDALLION_LIGHT
+    SLOT_NONE,          // ITEM_KOKIRI_EMERALD
+    SLOT_NONE,          // ITEM_GORON_RUBY
+    SLOT_NONE,          // ITEM_ZORA_SAPPHIRE
+    SLOT_NONE,          // ITEM_STONE_OF_AGONY
+    SLOT_NONE,          // ITEM_GERUDOS_CARD
+    SLOT_NONE,          // ITEM_SKULL_TOKEN
+    SLOT_NONE,          // ITEM_HEART_CONTAINER
+    SLOT_NONE,          // ITEM_HEART_PIECE
+    SLOT_NONE,          // ITEM_DUNGEON_BOSS_KEY
+    SLOT_NONE,          // ITEM_DUNGEON_COMPASS
+    SLOT_NONE,          // ITEM_DUNGEON_MAP
+    SLOT_NONE,          // ITEM_SMALL_KEY
+    SLOT_NONE,          // ITEM_MAGIC_JAR_SMALL
+    SLOT_NONE,          // ITEM_MAGIC_JAR_BIG
+    SLOT_NONE,          // ITEM_HEART_PIECE_2
+    SLOT_NONE,          // ITEM_INVALID_1
+    SLOT_NONE,          // ITEM_INVALID_2
+    SLOT_NONE,          // ITEM_INVALID_3
+    SLOT_NONE,          // ITEM_INVALID_4
+    SLOT_NONE,          // ITEM_INVALID_5
+    SLOT_NONE,          // ITEM_INVALID_6
+    SLOT_NONE,          // ITEM_INVALID_7
+    SLOT_NONE,          // ITEM_MILK
+    SLOT_NONE,          // ITEM_RECOVERY_HEART
+    SLOT_NONE,          // ITEM_RUPEE_GREEN
+    SLOT_NONE,          // ITEM_RUPEE_BLUE
+    SLOT_NONE,          // ITEM_RUPEE_RED
+    SLOT_NONE,          // ITEM_RUPEE_PURPLE
+    SLOT_NONE,          // ITEM_RUPEE_GOLD
+    SLOT_NONE,          // ITEM_INVALID_8
+    SLOT_NONE,          // ITEM_DEKU_STICKS_5
+    SLOT_NONE,          // ITEM_DEKU_STICKS_10
+    SLOT_NONE,          // ITEM_DEKU_NUTS_5
+    SLOT_NONE,          // ITEM_DEKU_NUTS_10
+    SLOT_NONE,          // ITEM_BOMBS_5
+    SLOT_NONE,          // ITEM_BOMBS_10
+    SLOT_NONE,          // ITEM_BOMBS_20
+    SLOT_NONE,          // ITEM_BOMBS_30
+    SLOT_NONE,          // ITEM_ARROWS_5
+    SLOT_NONE,          // ITEM_ARROWS_10
+    SLOT_NONE,          // ITEM_ARROWS_30
+    SLOT_NONE,          // ITEM_DEKU_SEEDS_30
+    SLOT_NONE,          // ITEM_BOMBCHUS_5
+    SLOT_NONE,          // ITEM_BOMBCHUS_20
+    SLOT_NONE,          // ITEM_DEKU_STICK_UPGRADE_20
+    SLOT_NONE,          // ITEM_DEKU_STICK_UPGRADE_30
+    SLOT_NONE,          // ITEM_DEKU_NUT_UPGRADE_30
+    SLOT_NONE,          // ITEM_DEKU_NUT_UPGRADE_40
+    SLOT_POWDER_KEG,    // ITEM_POWDER_KEG
 };
 
 void Inventory_ChangeEquipment(s16 equipment, u16 value) {

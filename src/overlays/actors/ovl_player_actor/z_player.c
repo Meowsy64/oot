@@ -1193,7 +1193,7 @@ static u8 D_80853E7C[] = {
 };
 
 // Used to map item IDs to item actions
-static s8 sItemActions[] = {
+static s8 sItemActions[NUM_ITEMS] = {
     PLAYER_IA_DEKU_STICK,          // ITEM_DEKU_STICK
     PLAYER_IA_DEKU_NUT,            // ITEM_DEKU_NUT
     PLAYER_IA_BOMB,                // ITEM_BOMB
@@ -1256,9 +1256,104 @@ static s8 sItemActions[] = {
     PLAYER_IA_SWORD_KOKIRI,        // ITEM_SWORD_KOKIRI
     PLAYER_IA_SWORD_MASTER,        // ITEM_SWORD_MASTER
     PLAYER_IA_SWORD_BIGGORON,      // ITEM_SWORD_BIGGORON
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SHIELD_DEKU
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SHIELD_HYLIAN
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SHIELD_MIRROR
+    PLAYER_IA_SWORD_MASTER,        // ITEM_TUNIC_KOKIRI
+    PLAYER_IA_SWORD_MASTER,        // ITEM_TUNIC_GORON
+    PLAYER_IA_SWORD_MASTER,        // ITEM_TUNIC_ZORA
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOOTS_KOKIRI
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOOTS_IRON
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOOTS_HOVER
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BULLET_BAG_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BULLET_BAG_40
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BULLET_BAG_50
+    PLAYER_IA_SWORD_MASTER,        // ITEM_QUIVER_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_QUIVER_40
+    PLAYER_IA_SWORD_MASTER,        // ITEM_QUIVER_50
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMB_BAG_20
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMB_BAG_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMB_BAG_40
+    PLAYER_IA_SWORD_MASTER,        // ITEM_STRENGTH_GORONS_BRACELET
+    PLAYER_IA_SWORD_MASTER,        // ITEM_STRENGTH_SILVER_GAUNTLETS
+    PLAYER_IA_SWORD_MASTER,        // ITEM_STRENGTH_GOLD_GAUNTLETS
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SCALE_SILVER
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SCALE_GOLDEN
+    PLAYER_IA_SWORD_MASTER,        // ITEM_GIANTS_KNIFE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_ADULTS_WALLET
+    PLAYER_IA_SWORD_MASTER,        // ITEM_GIANTS_WALLET
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_SEEDS
+    PLAYER_IA_SWORD_MASTER,        // ITEM_FISHING_POLE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_MINUET
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_BOLERO
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_SERENADE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_REQUIEM
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_NOCTURNE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_PRELUDE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_LULLABY
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_EPONA
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_SARIA
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_SUN
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_TIME
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SONG_STORMS
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MEDALLION_FOREST
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MEDALLION_FIRE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MEDALLION_WATER
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MEDALLION_SPIRIT
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MEDALLION_SHADOW
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MEDALLION_LIGHT
+    PLAYER_IA_SWORD_MASTER,        // ITEM_KOKIRI_EMERALD
+    PLAYER_IA_SWORD_MASTER,        // ITEM_GORON_RUBY
+    PLAYER_IA_SWORD_MASTER,        // ITEM_ZORA_SAPPHIRE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_STONE_OF_AGONY
+    PLAYER_IA_SWORD_MASTER,        // ITEM_GERUDOS_CARD
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SKULL_TOKEN
+    PLAYER_IA_SWORD_MASTER,        // ITEM_HEART_CONTAINER
+    PLAYER_IA_SWORD_MASTER,        // ITEM_HEART_PIECE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DUNGEON_BOSS_KEY
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DUNGEON_COMPASS
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DUNGEON_MAP
+    PLAYER_IA_SWORD_MASTER,        // ITEM_SMALL_KEY
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MAGIC_JAR_SMALL
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MAGIC_JAR_BIG
+    PLAYER_IA_SWORD_MASTER,        // ITEM_HEART_PIECE_2
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_1
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_2
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_3
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_4
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_5
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_6
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_7
+    PLAYER_IA_SWORD_MASTER,        // ITEM_MILK
+    PLAYER_IA_SWORD_MASTER,        // ITEM_RECOVERY_HEART
+    PLAYER_IA_SWORD_MASTER,        // ITEM_RUPEE_GREEN
+    PLAYER_IA_SWORD_MASTER,        // ITEM_RUPEE_BLUE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_RUPEE_RED
+    PLAYER_IA_SWORD_MASTER,        // ITEM_RUPEE_PURPLE
+    PLAYER_IA_SWORD_MASTER,        // ITEM_RUPEE_GOLD
+    PLAYER_IA_SWORD_MASTER,        // ITEM_INVALID_8
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_STICKS_5
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_STICKS_10
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_NUTS_5
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_NUTS_10
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMBS_5
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMBS_10
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMBS_20
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMBS_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_ARROWS_5
+    PLAYER_IA_SWORD_MASTER,        // ITEM_ARROWS_10
+    PLAYER_IA_SWORD_MASTER,        // ITEM_ARROWS_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_SEEDS_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMBCHUS_5
+    PLAYER_IA_SWORD_MASTER,        // ITEM_BOMBCHUS_20
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_STICK_UPGRADE_20
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_STICK_UPGRADE_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_NUT_UPGRADE_30
+    PLAYER_IA_SWORD_MASTER,        // ITEM_DEKU_NUT_UPGRADE_40
+    PLAYER_IA_POWDER_KEG,          // ITEM_POWDER_KEG
 };
 
-static s32 (*sItemActionUpdateFuncs[])(Player* this, PlayState* play) = {
+static s32 (*sItemActionUpdateFuncs[PLAYER_IA_MAX])(Player* this, PlayState* play) = {
     func_8083485C,                 // PLAYER_IA_NONE
     func_8083485C,                 // PLAYER_IA_SWORD_CS
     func_8083485C,                 // PLAYER_IA_FISHING_POLE
@@ -1326,9 +1421,10 @@ static s32 (*sItemActionUpdateFuncs[])(Player* this, PlayState* play) = {
     func_8083485C,                 // PLAYER_IA_MASK_GERUDO
     func_8083485C,                 // PLAYER_IA_MASK_TRUTH
     func_8083485C,                 // PLAYER_IA_LENS_OF_TRUTH
+    func_8083485C,                 // PLAYER_IA_POWDER_KEG
 };
 
-static void (*sItemActionInitFuncs[])(PlayState* play, Player* this) = {
+static void (*sItemActionInitFuncs[PLAYER_IA_MAX])(PlayState* play, Player* this) = {
     Player_InitDefaultIA,        // PLAYER_IA_NONE
     Player_InitDefaultIA,        // PLAYER_IA_SWORD_CS
     Player_InitDefaultIA,        // PLAYER_IA_FISHING_POLE
@@ -1396,6 +1492,7 @@ static void (*sItemActionInitFuncs[])(PlayState* play, Player* this) = {
     Player_InitDefaultIA,        // PLAYER_IA_MASK_GERUDO
     Player_InitDefaultIA,        // PLAYER_IA_MASK_TRUTH
     Player_InitDefaultIA,        // PLAYER_IA_LENS_OF_TRUTH
+    Player_InitExplosiveIA,      // PLAYER_IA_POWDER_KEG
 };
 
 typedef enum {
@@ -1453,6 +1550,7 @@ static s8 sItemChangeTypes[PLAYER_ANIMTYPE_MAX][PLAYER_ANIMTYPE_MAX] = {
 static ExplosiveInfo sExplosiveInfos[] = {
     { ITEM_BOMB, ACTOR_EN_BOM },
     { ITEM_BOMBCHU, ACTOR_EN_BOM_CHU },
+    { ITEM_POWDER_KEG, ACTOR_EN_BOM },
 };
 
 static struct_80854190 D_80854190[PLAYER_MWA_MAX] = {
@@ -2231,7 +2329,7 @@ void Player_InitExplosiveIA(PlayState* play, Player* this) {
         Actor_SpawnAsChild(&play->actorCtx, &this->actor, play, explosiveInfo->actorId, this->actor.world.pos.x,
                            this->actor.world.pos.y, this->actor.world.pos.z, 0, this->actor.shape.rot.y, 0, 0);
     if (spawnedActor != NULL) {
-        if ((explosiveType != 0) && (play->bombchuBowlingStatus != 0)) {
+        if ((explosiveType == 1) && (play->bombchuBowlingStatus != 0)) {
             play->bombchuBowlingStatus--;
             if (play->bombchuBowlingStatus == 0) {
                 play->bombchuBowlingStatus = -1;

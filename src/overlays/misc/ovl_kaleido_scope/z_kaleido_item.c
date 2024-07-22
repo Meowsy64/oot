@@ -41,7 +41,8 @@ void KaleidoScope_DrawAmmoCount(PauseContext* pauseCtx, GraphicsContext* gfxCtx,
                    (item == ITEM_SLINGSHOT && AMMO(item) == CUR_CAPACITY(UPG_BULLET_BAG)) ||
                    (item == ITEM_DEKU_STICK && AMMO(item) == CUR_CAPACITY(UPG_DEKU_STICKS)) ||
                    (item == ITEM_DEKU_NUT && AMMO(item) == CUR_CAPACITY(UPG_DEKU_NUTS)) ||
-                   (item == ITEM_BOMBCHU && ammo == 50) || (item == ITEM_MAGIC_BEAN && ammo == 15)) {
+                   (item == ITEM_BOMBCHU && ammo == 50) || (item == ITEM_MAGIC_BEAN && ammo == 15) ||
+                   (item == ITEM_POWDER_KEG && AMMO(item) == 1)) {
             gDPSetPrimColor(POLY_OPA_DISP++, 0, 0, 120, 255, 0, pauseCtx->alpha);
         }
     }

@@ -2302,6 +2302,13 @@ void Inventory_ChangeAmmo(s16 item, s16 ammoChange) {
         }
     } else if (item == ITEM_MAGIC_BEAN) {
         AMMO(ITEM_MAGIC_BEAN) += ammoChange;
+    } else if (item == ITEM_POWDER_KEG) {
+        AMMO(ITEM_POWDER_KEG) += ammoChange;
+        if (AMMO(ITEM_POWDER_KEG) >= 1) {
+            AMMO(ITEM_POWDER_KEG) = 1;
+        } else if (AMMO(ITEM_POWDER_KEG) < 0) {
+            AMMO(ITEM_POWDER_KEG) = 0;
+        }
     }
 
     PRINTF("合計 = (%d)\n", AMMO(item)); // "Total = (%d)"
@@ -2930,7 +2937,8 @@ s8 ItemUsesAmmo(u8 item) {
            item == ITEM_BOW_LIGHT ||
            item == ITEM_SLINGSHOT ||
            item == ITEM_BOMBCHU ||
-           item == ITEM_MAGIC_BEAN;
+           item == ITEM_MAGIC_BEAN ||
+           item == ITEM_POWDER_KEG;
 }
 
 void Interface_DrawAmmoCount(PlayState* play, s16 button, s16 alpha) {
@@ -2965,7 +2973,8 @@ void Interface_DrawAmmoCount(PlayState* play, s16 button, s16 alpha) {
                    ((i == ITEM_SLINGSHOT) && (AMMO(i) == CUR_CAPACITY(UPG_BULLET_BAG))) ||
                    ((i == ITEM_DEKU_STICK) && (AMMO(i) == CUR_CAPACITY(UPG_DEKU_STICKS))) ||
                    ((i == ITEM_DEKU_NUT) && (AMMO(i) == CUR_CAPACITY(UPG_DEKU_NUTS))) ||
-                   ((i == ITEM_BOMBCHU) && (ammo == 50)) || ((i == ITEM_MAGIC_BEAN) && (ammo == 15))) {
+                   ((i == ITEM_BOMBCHU) && (ammo == 50)) || ((i == ITEM_MAGIC_BEAN) && (ammo == 15)) ||
+                   ((i == ITEM_POWDER_KEG) && (AMMO(i) == 1))) {
             gDPSetPrimColor(OVERLAY_DISP++, 0, 0, 120, 255, 0, alpha);
         }
 

@@ -88,6 +88,7 @@ u8 sActionModelGroups[PLAYER_IA_MAX] = {
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_MASK_GERUDO
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_MASK_TRUTH
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_LENS_OF_TRUTH
+    PLAYER_MODELGROUP_EXPLOSIVES,       // PLAYER_IA_POWDER_KEG
 };
 
 typedef struct {
@@ -751,12 +752,11 @@ s32 Player_GetBottleHeld(Player* this) {
 }
 
 s32 Player_ActionToExplosive(Player* this, s32 itemAction) {
-    s32 explosive = itemAction - PLAYER_IA_BOMB;
-
-    if ((explosive >= 0) && (explosive < 2)) {
-        return explosive;
-    } else {
-        return -1;
+    switch (itemAction) {
+        case PLAYER_IA_BOMB:       return 0;
+        case PLAYER_IA_BOMBCHU:    return 1;
+        case PLAYER_IA_POWDER_KEG: return 2;
+        default:                   return -1;
     }
 }
 
