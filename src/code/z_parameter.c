@@ -1307,12 +1307,16 @@ void func_800849EC(PlayState* play) {
     Interface_LoadItemIcon1(play, 0);
 }
 
+uintptr_t Interface_GetItemIconPointer(u8 itemid) {
+    return ((uintptr_t)_icon_item_staticSegmentRomStart + (uintptr_t)gItemIcons[itemid] - (uintptr_t)gItemIcons[0]);
+}
+
 void Interface_LoadItemIcon1(PlayState* play, u16 button) {
     InterfaceContext* interfaceCtx = &play->interfaceCtx;
 
     osCreateMesgQueue(&interfaceCtx->loadQueue, &interfaceCtx->loadMsg, 1);
     DMA_REQUEST_ASYNC(&interfaceCtx->dmaRequest_160, interfaceCtx->iconItemSegment + (button * ITEM_ICON_SIZE),
-                      GET_ITEM_ICON_VROM(gSaveContext.save.info.equips.buttonItems[button]), ITEM_ICON_SIZE, 0,
+                      Interface_GetItemIconPointer(gSaveContext.save.info.equips.buttonItems[button]), ITEM_ICON_SIZE, 0,
                       &interfaceCtx->loadQueue, NULL, "../z_parameter.c", 1171);
     osRecvMesg(&interfaceCtx->loadQueue, NULL, OS_MESG_BLOCK);
 }
@@ -1322,7 +1326,7 @@ void Interface_LoadItemIcon2(PlayState* play, u16 button) {
 
     osCreateMesgQueue(&interfaceCtx->loadQueue, &interfaceCtx->loadMsg, 1);
     DMA_REQUEST_ASYNC(&interfaceCtx->dmaRequest_180, interfaceCtx->iconItemSegment + (button * ITEM_ICON_SIZE),
-                      GET_ITEM_ICON_VROM(gSaveContext.save.info.equips.buttonItems[button]), ITEM_ICON_SIZE, 0,
+                      Interface_GetItemIconPointer(gSaveContext.save.info.equips.buttonItems[button]), ITEM_ICON_SIZE, 0,
                       &interfaceCtx->loadQueue, NULL, "../z_parameter.c", 1193);
     osRecvMesg(&interfaceCtx->loadQueue, NULL, OS_MESG_BLOCK);
 }
