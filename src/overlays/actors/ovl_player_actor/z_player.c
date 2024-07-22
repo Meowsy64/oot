@@ -2327,7 +2327,7 @@ void Player_InitExplosiveIA(PlayState* play, Player* this) {
 
     spawnedActor =
         Actor_SpawnAsChild(&play->actorCtx, &this->actor, play, explosiveInfo->actorId, this->actor.world.pos.x,
-                           this->actor.world.pos.y, this->actor.world.pos.z, 0, this->actor.shape.rot.y, 0, 0);
+                           this->actor.world.pos.y, this->actor.world.pos.z, (explosiveType == 2) ? 1 : 0, this->actor.shape.rot.y, 0, 0);
     if (spawnedActor != NULL) {
         if ((explosiveType == 1) && (play->bombchuBowlingStatus != 0)) {
             play->bombchuBowlingStatus--;

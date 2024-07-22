@@ -242,7 +242,7 @@ void* gItemIcons[NUM_ITEMS] = {
     gItemIconDekuStickTex,         // ITEM_DEKU_STICK_UPGRADE_30
     gItemIconDekuNutTex,           // ITEM_DEKU_NUT_UPGRADE_30
     gItemIconDekuNutTex,           // ITEM_DEKU_NUT_UPGRADE_40
-    gItemIconBombTex,              // ITEM_POWDER_KEG
+    gItemIconPowderKegTex,         // ITEM_POWDER_KEG
 };
 
 // Used to map item IDs to inventory slots

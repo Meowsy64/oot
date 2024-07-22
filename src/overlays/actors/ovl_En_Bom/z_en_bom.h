@@ -8,6 +8,8 @@ struct EnBom;
 
 typedef void (*EnBomActionFunc)(struct EnBom*, struct PlayState*);
 
+#define ENBOM_GET_1(thisx) ((thisx)->shape.rot.x & 1)
+
 typedef struct EnBom {
     /* 0x0000 */ Actor actor;
     /* 0x014C */ ColliderCylinder bombCollider;
@@ -18,6 +20,7 @@ typedef struct EnBom {
     /* 0x01FC */ f32 flashIntensity;
     /* 0x0200 */ u8 colliderSetOC;
     /* 0x0204 */ EnBomActionFunc actionFunc;
+    /* 0x1F9 */ u8 isPowderKeg;
 } EnBom; // size = 0x0208
 
 typedef enum {
