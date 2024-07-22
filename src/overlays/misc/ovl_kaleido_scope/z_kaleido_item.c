@@ -13,53 +13,6 @@ static s16 sEquipState = 0;
 static s16 sEquipAnimTimer = 0;
 static s16 sEquipMoveTimer = 10;
 
-static s16 sAmmoVtxOffset[ITEMSCREEN_WIDTH * ITEMSCREEN_HEIGHT] = {
-    0,  // SLOT_DEKU_STICK
-    2,  // SLOT_DEKU_NUT
-    4,  // SLOT_BOMB
-    99, // SLOT_FREE1
-    99, // SLOT_FREE2
-    6,  // SLOT_BOW
-    99, // SLOT_ARROW_FIRE
-    99, // SLOT_DINS_FIRE
-
-    8,  // SLOT_SLINGSHOT
-    99, // SLOT_OCARINA
-    10, // SLOT_BOMBCHU
-    99, // SLOT_HOOKSHOT
-    99, // SLOT_FREE3
-    99, // SLOT_FREE4
-    99, // SLOT_ARROW_ICE
-    99, // SLOT_FARORES_WIND
-
-    99, // SLOT_BOOMERANG
-    99, // SLOT_LENS_OF_TRUTH
-    12, // SLOT_MAGIC_BEAN
-    99, // SLOT_HAMMER
-    99, // SLOT_FREE5
-    99, // SLOT_FREE6
-    99, // SLOT_ARROW_LIGHT
-    99, // SLOT_NAYRUS_LOVE
-
-    99, // SLOT_FREE7
-    99, // SLOT_FREE8
-    99, // SLOT_FREE9
-    99, // SLOT_FREE10
-    99, // SLOT_FREE11
-    99, // SLOT_FREE12
-    99, // SLOT_FREE13
-    99, // SLOT_FREE14
-
-    99, // SLOT_BOTTLE_1
-    99, // SLOT_BOTTLE_2
-    99, // SLOT_BOTTLE_3
-    99, // SLOT_BOTTLE_4
-    99, // SLOT_BOTTLE_5
-    99, // SLOT_BOTTLE_6
-    99, // SLOT_TRADE_ADULT
-    99, // SLOT_TRADE_CHILD
-};
-
 // From SoH
 s8 ItemInSlotUsesAmmo(s16 slot) {
     s16 item = gSaveContext.save.info.inventory.items[slot];
