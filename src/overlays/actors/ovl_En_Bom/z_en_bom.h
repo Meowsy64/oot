@@ -20,7 +20,9 @@ typedef struct EnBom {
     /* 0x01FC */ f32 flashIntensity;
     /* 0x0200 */ u8 colliderSetOC;
     /* 0x0204 */ EnBomActionFunc actionFunc;
-    /* 0x1F9 */ u8 isPowderKeg;
+                 u8 isPowderKeg;
+                 s16 unk_1FA;
+                 u8 unk_1FC;
 } EnBom; // size = 0x0208
 
 typedef enum {

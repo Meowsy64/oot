@@ -3055,6 +3055,7 @@ void Audio_PlaySfxTransposed(Vec3f* pos, u16 sfxId, s8 semitone) {
                          &gSfxDefaultReverb);
 }
 
+// AudioSfx_SetChannelIO
 void func_800F4C58(Vec3f* pos, u16 sfxId, u8 ioData) {
     u8 channelIndex = 0;
     u8 i;
@@ -3072,6 +3073,14 @@ void func_800F4C58(Vec3f* pos, u16 sfxId, u8 ioData) {
         }
         channelIndex++;
     }
+    Audio_PlaySfxGeneral(sfxId, pos, 4, &gSfxDefaultFreqAndVolScale, &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
+}
+
+/**
+ * Plays sfx and sets ioData to io port 6 if the sfx is active
+ */
+void Audio_PlaySfx_AtPosWithChannelIO(Vec3f* pos, u16 sfxId, u8 ioData) {
+    func_800F4C58(pos, sfxId, ioData);
     Audio_PlaySfxGeneral(sfxId, pos, 4, &gSfxDefaultFreqAndVolScale, &gSfxDefaultFreqAndVolScale, &gSfxDefaultReverb);
 }
 
