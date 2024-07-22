@@ -3772,4 +3772,3 @@ void* gLinkAdultSkelLimbs[] = {
 FlexSkeletonHeader gLinkAdultSkel = { 
     { gLinkAdultSkelLimbs, ARRAY_COUNT(gLinkAdultSkelLimbs) }, 18
 };
-
