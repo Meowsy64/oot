@@ -1421,7 +1421,7 @@ static s32 (*sItemActionUpdateFuncs[PLAYER_IA_MAX])(Player* this, PlayState* pla
     func_8083485C,                 // PLAYER_IA_MASK_GERUDO
     func_8083485C,                 // PLAYER_IA_MASK_TRUTH
     func_8083485C,                 // PLAYER_IA_LENS_OF_TRUTH
-    func_8083485C,                 // PLAYER_IA_POWDER_KEG
+    Player_UpperAction_CarryActor, // PLAYER_IA_POWDER_KEG
 };
 
 static void (*sItemActionInitFuncs[PLAYER_IA_MAX])(PlayState* play, Player* this) = {
